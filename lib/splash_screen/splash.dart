@@ -27,8 +27,8 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Align(
             alignment: Alignment.topRight,
-            child: TextButton(
-              onPressed: () {},
+            child: GestureDetector(
+              onTap: () {},
               child: const Text(
                 'Skip',
                 textAlign: TextAlign.end,
@@ -154,14 +154,14 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               //padding: const EdgeInsets.all(5.0),
               margin: const EdgeInsets.all(30),
-              child: TextButton(
+              child: GestureDetector(
                 child: const Text(
                   'Get Started',
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
-                onPressed: () {},
+                onTap: () {},
               ),
             ),
           ),
