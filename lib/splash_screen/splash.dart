@@ -155,6 +155,7 @@ class _SplashScreenState extends State<SplashScreen> {
               //padding: const EdgeInsets.all(5.0),
               margin: const EdgeInsets.all(30),
               child: GestureDetector(
+                
                 child: const Text(
                   'Get Started',
                   style: TextStyle(
