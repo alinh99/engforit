@@ -31,15 +31,14 @@ class _CertificationState extends State<Certification> {
         if (composition != null) {
           return Lottie(
             composition: composition,
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
+            alignment: Alignment.center,
           );
         } else {
           return SafeArea(
             child: Column(
               children: const [
                 SizedBox(
-                  height: 350.0,
+                  height: 300.0,
                 ),
                 Center(
                   child: CircularProgressIndicator(),
