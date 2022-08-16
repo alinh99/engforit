@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
 class Calendar extends StatefulWidget {
-  const Calendar({Key? key}) : super(key: key);
+  const Calendar({Key key}) : super(key: key);
 
   @override
   State<Calendar> createState() => _CalendarState();
 }
 
 class _CalendarState extends State<Calendar> {
-  late final Future<LottieComposition> _composition;
+    Future<LottieComposition> _composition;
   @override
   void initState() {
     super.initState();

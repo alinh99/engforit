@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
 class Certification extends StatefulWidget {
-  const Certification({Key? key}) : super(key: key);
+  const Certification({Key key}) : super(key: key);
 
   @override
   State<Certification> createState() => _CertificationState();
 }
 
 class _CertificationState extends State<Certification> {
-  late final Future<LottieComposition> _composition;
+    Future<LottieComposition> _composition;
   @override
   void initState() {
     super.initState();

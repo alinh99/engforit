@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
+  const Register({Key key}) : super(key: key);
 
   @override
   State<Register> createState() => _RegisterState();
 }
 
 class _RegisterState extends State<Register> {
-  late final Future<LottieComposition> _composition;
+  Future<LottieComposition> _composition;
   @override
   Widget build(BuildContext context) {
     return Column(

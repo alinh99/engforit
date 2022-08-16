@@ -1,3 +1,4 @@
+import 'package:eft_project/login_screen/login.dart';
 import 'package:eft_project/splash_screen/calendar.dart';
 import 'package:eft_project/splash_screen/favourite.dart';
 import 'package:eft_project/splash_screen/certification.dart';
@@ -5,7 +6,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 
 class Splash extends StatefulWidget {
-  const Splash({Key? key}) : super(key: key);
+  const Splash({Key key}) : super(key: key);
 
   @override
   State<Splash> createState() => _SplashState();
@@ -24,36 +25,22 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return MediaQuery.of(context).orientation == Orientation.landscape
         ? SingleChildScrollView(
-            child: buildSplashScreen(context, 1.25),
+            child: buildSplashScreen(context, 1.01, 0.4, 20.0, 10.0),
           )
-        : buildSplashScreen(context, 0.57);
+        : buildSplashScreen(context, 0.57, 1, 40.0, 20.0);
   }
 
   Column buildSplashScreen(
     BuildContext context,
     double height,
+    double width,
+    double heightSizeBoxTitle,
+    double heightSizeBoxDescription,
   ) {
     return Column(
       children: [
-        Align(
-          alignment: Alignment.topRight,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {},
-              child: const Text(
-                'Skip',
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontFamily: 'OpenSans',
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-            ),
-          ),
-        ),
         SizedBox(
+          width: MediaQuery.of(context).size.width * width,
           height: MediaQuery.of(context).size.height * height,
           child: PageView(
             children: list,
@@ -66,21 +53,18 @@ class _SplashState extends State<Splash> {
             },
           ),
         ),
-        const SizedBox(
-          height: 5.0,
-        ),
         SmoothPageIndicator(
           controller: controller,
           count: 3,
           axisDirection: Axis.horizontal,
           effect: const CustomizableEffect(
             activeDotDecoration: DotDecoration(
-              width: 3,
-              height: 3,
+              width: 10,
+              height: 5,
               color: Color(0xFF54c2fe),
               dotBorder: DotBorder(
-                padding: 2,
-                width: 2,
+                padding: 5,
+                width: 5,
                 color: Color(0xFF54c2fe),
               ),
               borderRadius: BorderRadius.only(
@@ -95,8 +79,8 @@ class _SplashState extends State<Splash> {
               height: 5,
               color: Colors.grey,
               dotBorder: DotBorder(
-                padding: 2,
-                width: 2,
+                padding: 5,
+                width: 5,
                 color: Colors.grey,
               ),
               borderRadius: BorderRadius.only(
@@ -106,12 +90,11 @@ class _SplashState extends State<Splash> {
                 bottomRight: Radius.circular(2),
               ),
               // borderRadius: BorderRadius.circular(16),
-              verticalOffset: 0,
             ),
           ),
         ),
-        const SizedBox(
-          height: 16.0,
+        SizedBox(
+          height: heightSizeBoxTitle,
         ),
         Align(
           alignment: Alignment.center,
@@ -149,6 +132,9 @@ class _SplashState extends State<Splash> {
             ),
           ),
         ),
+        SizedBox(
+          height: heightSizeBoxDescription,
+        ),
         Align(
           alignment: Alignment.center,
           child: Container(
@@ -174,7 +160,10 @@ class _SplashState extends State<Splash> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Login()));
+              },
             ),
           ),
         ),
