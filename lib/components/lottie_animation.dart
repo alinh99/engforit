@@ -1,37 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-class Certification extends StatefulWidget {
-  const Certification({Key key}) : super(key: key);
+class LottieAnimation extends StatelessWidget {
+  const LottieAnimation({
+    Key key,
+    @required Future<LottieComposition> composition,
+    @required this.height,
+  })  : _composition = composition,
+        super(key: key);
 
-  @override
-  State<Certification> createState() => _CertificationState();
-}
-
-class _CertificationState extends State<Certification> {
-    Future<LottieComposition> _composition;
-  @override
-  void initState() {
-    super.initState();
-    _composition = _loadComposition();
-  }
-
-  Future<LottieComposition> _loadComposition() async {
-    var assetData = await rootBundle.load('assets/images/certification.json');
-    return await LottieComposition.fromByteData(assetData);
-  }
+  final Future<LottieComposition> _composition;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<LottieComposition>(
       future: _composition,
-      builder: (cotext, snapshot) {
+      builder: (context, snapshot) {
         var composition = snapshot.data;
+
         if (composition != null) {
-          return Lottie(
-            composition: composition,
+          return Align(
             alignment: Alignment.center,
+            child: Lottie(
+              composition: composition,
+              alignment: Alignment.center,
+              height: MediaQuery.of(context).size.height * height,
+            ),
           );
         } else {
           return SafeArea(

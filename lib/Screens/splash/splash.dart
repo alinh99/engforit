@@ -1,25 +1,38 @@
-import 'package:eft_project/login_screen/login.dart';
-import 'package:eft_project/splash_screen/calendar.dart';
-import 'package:eft_project/splash_screen/favourite.dart';
-import 'package:eft_project/splash_screen/certification.dart';
+import 'package:eft_project/Screens/login/login.dart';
+import 'package:eft_project/components/lottie_animation.dart';
+import 'package:eft_project/constants.dart';
+import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
+
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key key}) : super(key: key);
-
+  static String id = 'splash';
   @override
   State<Splash> createState() => _SplashState();
 }
 
 class _SplashState extends State<Splash> {
   PageController controller = PageController();
-  List<Widget> list = <Widget>[
-    const Calendar(),
-    const Favourite(),
-    const Certification(),
-  ];
+  Future<LottieComposition> compositionCalendar;
+  Future<LottieComposition> compositionFav;
+  Future<LottieComposition> compositionCertification;
   int curr = 0;
+  @override
+  void initState() {
+    super.initState();
+    compositionCalendar = _loadComposition('assets/images/calendar.json');
+    compositionFav = _loadComposition('assets/images/favourite.json');
+    compositionCertification =
+        _loadComposition('assets/images/certification.json');
+  }
+
+  Future<LottieComposition> _loadComposition(String path) async {
+    var assetData = await rootBundle.load(path);
+    return await LottieComposition.fromByteData(assetData);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +42,13 @@ class _SplashState extends State<Splash> {
           )
         : buildSplashScreen(context, 0.57, 1, 40.0, 20.0);
   }
+
+  // List<Widget> list = <Widget>[
+  //   LottieAnimation(composition: compositionCalendar, height: 0.2),
+  //   const Calendar(),
+  //   const Favourite(),
+  //   const Certification(),
+  // ];
 
   Column buildSplashScreen(
     BuildContext context,
@@ -43,7 +63,11 @@ class _SplashState extends State<Splash> {
           width: MediaQuery.of(context).size.width * width,
           height: MediaQuery.of(context).size.height * height,
           child: PageView(
-            children: list,
+            children: [
+              LottieAnimation(composition: compositionCalendar, height: 1),
+              LottieAnimation(composition: compositionFav, height: 1,),
+              LottieAnimation(composition: compositionCertification, height: 1,),
+            ],
             scrollDirection: Axis.horizontal,
             controller: controller,
             onPageChanged: (value) {
@@ -61,11 +85,11 @@ class _SplashState extends State<Splash> {
             activeDotDecoration: DotDecoration(
               width: 10,
               height: 5,
-              color: Color(0xFF54c2fe),
+              color: kPrimaryColor,
               dotBorder: DotBorder(
                 padding: 5,
                 width: 5,
-                color: Color(0xFF54c2fe),
+                color: kPrimaryColor,
               ),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(2),
@@ -140,15 +164,11 @@ class _SplashState extends State<Splash> {
           child: Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              border: Border.all(
-                color: const Color(
-                  0xFF54c2fe,
-                ),
-              ),
+              border: Border.all(color: kPrimaryColor),
               borderRadius: const BorderRadius.all(
                 Radius.circular(50.0),
               ),
-              color: const Color(0xFF54c2fe),
+              color: kPrimaryColor,
             ),
             padding: const EdgeInsets.all(10.0),
             margin: const EdgeInsets.all(20),
@@ -161,8 +181,7 @@ class _SplashState extends State<Splash> {
                 textAlign: TextAlign.center,
               ),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Login()));
+                Navigator.pushNamed(context, Login.id);
               },
             ),
           ),
