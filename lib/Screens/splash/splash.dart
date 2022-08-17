@@ -43,13 +43,6 @@ class _SplashState extends State<Splash> {
         : buildSplashScreen(context, 0.57, 1, 40.0, 20.0);
   }
 
-  // List<Widget> list = <Widget>[
-  //   LottieAnimation(composition: compositionCalendar, height: 0.2),
-  //   const Calendar(),
-  //   const Favourite(),
-  //   const Certification(),
-  // ];
-
   Column buildSplashScreen(
     BuildContext context,
     double height,
