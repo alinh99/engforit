@@ -58,8 +58,14 @@ class _SplashState extends State<Splash> {
           child: PageView(
             children: [
               LottieAnimation(composition: compositionCalendar, height: 1),
-              LottieAnimation(composition: compositionFav, height: 1,),
-              LottieAnimation(composition: compositionCertification, height: 1,),
+              LottieAnimation(
+                composition: compositionFav,
+                height: 1,
+              ),
+              LottieAnimation(
+                composition: compositionCertification,
+                height: 1,
+              ),
             ],
             scrollDirection: Axis.horizontal,
             controller: controller,

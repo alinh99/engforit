@@ -6,11 +6,13 @@ class LottieAnimation extends StatelessWidget {
     Key key,
     @required Future<LottieComposition> composition,
     @required this.height,
+    this.width,
   })  : _composition = composition,
         super(key: key);
 
   final Future<LottieComposition> _composition;
   final double height;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class LottieAnimation extends StatelessWidget {
               composition: composition,
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * height,
+              width: width,
             ),
           );
         } else {

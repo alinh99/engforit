@@ -1,3 +1,4 @@
+import 'package:eft_project/Screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:eft_project/constants.dart';
 
@@ -14,7 +15,9 @@ class RoundedButton extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, Home.id);
+      },
       borderRadius: BorderRadius.circular(30),
       child: Container(
         width: size.width * 0.8,
@@ -22,15 +25,11 @@ class RoundedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(30),
           color: kPrimaryColor,
         ),
-
         padding: const EdgeInsets.symmetric(vertical: 20),
         alignment: Alignment.center,
         child: Text(
           title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 18
-          ),
+          style: const TextStyle(color: Colors.white, fontSize: 18),
         ),
       ),
     );

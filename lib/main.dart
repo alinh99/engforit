@@ -1,6 +1,6 @@
+import 'package:eft_project/Screens/home/home.dart';
 import 'package:eft_project/Screens/login/login.dart';
 import 'package:eft_project/Screens/splash/splash.dart';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         Splash.id: (context) => const Splash(),
         Login.id: (context) => const Login(),
+        Home.id:(context) => const Home(),
       },
     );
   }
