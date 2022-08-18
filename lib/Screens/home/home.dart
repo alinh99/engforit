@@ -1,6 +1,6 @@
 import 'package:eft_project/Screens/home/components/category_cards.dart';
 import 'package:eft_project/Screens/home/components/lesson_cards.dart';
-import 'package:eft_project/components/lottie_animation.dart';
+import 'package:eft_project/components/icon_button.dart';
 import 'package:eft_project/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +38,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const CustomBottomNavBar(),
       body: SafeArea(
         child: Column(
           children: [
@@ -109,7 +110,7 @@ class _HomeState extends State<Home> {
                           Flexible(
                             child: Container(
                               padding: const EdgeInsets.only(
-                                top: 16,
+                                top: 8,
                                 left: 24,
                                 right: 16,
                               ),
@@ -230,28 +231,28 @@ class _HomeState extends State<Home> {
                                   composition: compositionReading,
                                   title: 'Reading',
                                   cardColor: const Color(0xFF54C3FF),
-                                  totalLesson: 17,
+                                  totalLesson: 10,
                                   min: 40,
                                 ),
                                 LessonCards(
                                   composition: compositionListening,
                                   title: 'Listening',
                                   cardColor: const Color(0xFFF5AE2C),
-                                  totalLesson: 20,
+                                  totalLesson: 10,
                                   min: 60,
                                 ),
                                 LessonCards(
                                   composition: compositionSpeaking,
                                   title: 'Speaking',
                                   cardColor: const Color(0xFF7383C0),
-                                  totalLesson: 20,
+                                  totalLesson: 10,
                                   min: 60,
                                 ),
                                 LessonCards(
                                   composition: compositionWriting,
                                   title: 'Writing',
                                   cardColor: const Color(0xFF5AE2E2),
-                                  totalLesson: 20,
+                                  totalLesson: 10,
                                   min: 60,
                                 ),
                               ],
@@ -259,23 +260,86 @@ class _HomeState extends State<Home> {
                           )
                         ],
                       ),
+                      const SizedBox(
+                        height: 32,
+                      ),
                     ],
                   ),
                 ),
               ),
             ),
-            Container(
-              //padding: EdgeInsets.symmetric(vertical: 32),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-              ),
-            )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class CustomBottomNavBar extends StatelessWidget {
+  const CustomBottomNavBar({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      height: 55,
+      decoration: const BoxDecoration(
+        //color: Color(),
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(20),
+        ),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            spreadRadius: 5,
+            blurRadius: 10,
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: IconButtons(
+                    icon: CupertinoIcons.home,
+                    onTap: () {},
+                  ),
+                ),
+                Expanded(
+                  child: IconButtons(
+                    icon: CupertinoIcons.star,
+                    onTap: () {},
+                  ),
+                ),
+                Expanded(
+                  child: IconButtons(
+                    icon: CupertinoIcons.book,
+                    onTap: () {},
+                  ),
+                ),
+                Expanded(
+                  child: IconButtons(
+                    icon: CupertinoIcons.bell,
+                    onTap: () {},
+                  ),
+                ),
+                Expanded(
+                  child: IconButtons(
+                    icon: CupertinoIcons.person,
+                    onTap: () {},
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
