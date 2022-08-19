@@ -56,6 +56,13 @@ class _SplashState extends State<Splash> {
           width: MediaQuery.of(context).size.width * width,
           height: MediaQuery.of(context).size.height * height,
           child: PageView(
+            scrollDirection: Axis.horizontal,
+            controller: controller,
+            onPageChanged: (value) {
+              setState(() {
+                curr = value;
+              });
+            },
             children: [
               LottieAnimation(composition: compositionCalendar, height: 1),
               LottieAnimation(
@@ -67,13 +74,6 @@ class _SplashState extends State<Splash> {
                 height: 1,
               ),
             ],
-            scrollDirection: Axis.horizontal,
-            controller: controller,
-            onPageChanged: (value) {
-              setState(() {
-                curr = value;
-              });
-            },
           ),
         ),
         SmoothPageIndicator(

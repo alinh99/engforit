@@ -1,6 +1,5 @@
 import 'package:eft_project/Screens/home/components/category_cards.dart';
 import 'package:eft_project/Screens/home/components/lesson_cards.dart';
-import 'package:eft_project/Screens/login/login.dart';
 import 'package:eft_project/components/bottom_navigation_bar.dart';
 import 'package:eft_project/constants.dart';
 import 'package:eft_project/enum.dart';
@@ -17,13 +16,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  PageController controller = PageController();
   int selectedIndex = 0;
   Future<LottieComposition> compositionReading;
   Future<LottieComposition> compositionListening;
   Future<LottieComposition> compositionSpeaking;
   Future<LottieComposition> compositionWriting;
   CategoryState categorySelected;
+  MenuState menuSelected;
   Future<LottieComposition> _loadComposition(String path) async {
     var assetData = await rootBundle.load(path);
     return await LottieComposition.fromByteData(assetData);
@@ -36,28 +35,14 @@ class _HomeState extends State<Home> {
     compositionWriting = _loadComposition('assets/images/writing.json');
     compositionSpeaking = _loadComposition('assets/images/speaking.json');
     categorySelected = CategoryState.all;
+    menuSelected = MenuState.home;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              spreadRadius: 5,
-              blurRadius: 10,
-            ),
-          ],
-        ),
-        child: const CustomBottomNavBar(selectedMenu: MenuState.home),
-      ),
+      bottomNavigationBar: CustomBottomNavBar(selected: MenuState.home),
       body: SafeArea(
         child: Column(
           children: [
@@ -103,11 +88,11 @@ class _HomeState extends State<Home> {
                     margin: const EdgeInsets.only(top: 8, right: 20),
                     child: const CircleAvatar(
                       backgroundColor: Color(0xFFCFD9FF),
+                      radius: 25,
                       child: Icon(
                         Icons.person,
                         color: Colors.white,
                       ),
-                      radius: 25,
                     ),
                   ),
                 ],
@@ -157,13 +142,14 @@ class _HomeState extends State<Home> {
                             ),
                             height: 60,
                             width: 60,
-                            child: const Icon(
-                              Icons.settings,
-                              color: Colors.white,
-                            ),
+
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: kPrimaryColor,
+                            ),
+                            child: const Icon(
+                              Icons.settings,
+                              color: Colors.white,
                             ),
                           ),
                         ],

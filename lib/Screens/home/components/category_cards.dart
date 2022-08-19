@@ -1,9 +1,7 @@
-import 'package:eft_project/constants.dart';
-import 'package:eft_project/enum.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCards extends StatefulWidget {
-  CategoryCards({
+  const CategoryCards({
     this.top,
     this.backgroudColorCard,
     this.backgroundColorIcon,
@@ -41,15 +39,16 @@ class _CategoryCardsState extends State<CategoryCards> {
               top: widget.top, left: widget.left, right: widget.right),
           height: 60,
           width: 60,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            color: widget.backgroudColorCard,
+          ),
           child: Row(
             children: [
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  // color: widget.isPressed
-                  //     ? Colors.white
-                  //     : widget.backgroundColorIcon,
                   color: widget.backgroundColorIcon,
                 ),
                 margin: const EdgeInsets.only(left: 8),
@@ -64,17 +63,11 @@ class _CategoryCardsState extends State<CategoryCards> {
               Text(
                 widget.text,
                 style: TextStyle(
-                  //color: widget.isPressed ? Colors.white : widget.textColor,
                   color: widget.textColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ],
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            //color: widget.isPressed ? kPrimaryColor : widget.backgroudColorCard,
-            color: widget.backgroudColorCard,
           ),
         ),
       ),

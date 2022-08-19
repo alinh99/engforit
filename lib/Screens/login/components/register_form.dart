@@ -64,7 +64,7 @@ class _RegisterFormState extends State<RegisterForm> {
                       height: 0.2,
                     ),
                     onTap: () {
-                      print('worked');
+                      //print('worked');
                     },
                   ),
                   const SizedBox(height: 40),

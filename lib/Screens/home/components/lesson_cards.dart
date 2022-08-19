@@ -28,6 +28,10 @@ class LessonCards extends StatelessWidget {
         left: 24,
         right: 0.1,
       ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: cardColor,
+      ),
       child: Container(
         margin: const EdgeInsets.only(bottom: 8),
         child: Column(
@@ -120,10 +124,6 @@ class LessonCards extends StatelessWidget {
             ),
           ],
         ),
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: cardColor,
       ),
     );
   }
