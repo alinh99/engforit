@@ -23,6 +23,7 @@ class _HomeState extends State<Home> {
   Future<LottieComposition> compositionListening;
   Future<LottieComposition> compositionSpeaking;
   Future<LottieComposition> compositionWriting;
+  CategoryState categorySelected;
   Future<LottieComposition> _loadComposition(String path) async {
     var assetData = await rootBundle.load(path);
     return await LottieComposition.fromByteData(assetData);
@@ -34,12 +35,12 @@ class _HomeState extends State<Home> {
     compositionListening = _loadComposition('assets/images/listening.json');
     compositionWriting = _loadComposition('assets/images/writing.json');
     compositionSpeaking = _loadComposition('assets/images/speaking.json');
+    categorySelected = CategoryState.all;
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    bool hasBeenPressed = false;
     return Scaffold(
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
@@ -192,25 +193,55 @@ class _HomeState extends State<Home> {
                                 top: 8,
                                 left: 24,
                                 right: 8,
-                                backgroudColorCard: Colors.white,
-                                backgroundColorIcon: Colors.red,
+                                backgroudColorCard:
+                                    categorySelected == CategoryState.all
+                                        ? kPrimaryColor
+                                        : Colors.white,
+                                backgroundColorIcon:
+                                    categorySelected == CategoryState.all
+                                        ? Colors.white
+                                        : Colors.red,
                                 text: 'All Topic',
                                 icon: Icons.local_fire_department_outlined,
-                                textColor: Colors.black,
-                                iconColor: Colors.white,
-                                isPressed: true,
+                                textColor: categorySelected == CategoryState.all
+                                    ? Colors.white
+                                    : Colors.black,
+                                iconColor: categorySelected == CategoryState.all
+                                    ? kPrimaryColor
+                                    : Colors.white,
+                                pressed: () {
+                                  setState(() {
+                                    categorySelected = CategoryState.all;
+                                  });
+                                },
                               ),
                               CategoryCards(
                                 top: 8,
                                 left: 8,
                                 right: 16,
-                                backgroudColorCard: Colors.white,
-                                backgroundColorIcon: Color(0xffF5AE2C),
+                                backgroudColorCard:
+                                    categorySelected == CategoryState.popular
+                                        ? kPrimaryColor
+                                        : Colors.white,
+                                backgroundColorIcon:
+                                    categorySelected == CategoryState.popular
+                                        ? Colors.white
+                                        : const Color(0xffF5AE2C),
                                 text: 'Popular',
                                 icon: Icons.lightbulb_outline,
-                                textColor: Colors.black,
-                                iconColor: Colors.white,
-                                isPressed: false,
+                                textColor:
+                                    categorySelected == CategoryState.popular
+                                        ? Colors.white
+                                        : Colors.black,
+                                iconColor:
+                                    categorySelected == CategoryState.popular
+                                        ? kPrimaryColor
+                                        : Colors.white,
+                                pressed: () {
+                                  setState(() {
+                                    categorySelected = CategoryState.popular;
+                                  });
+                                },
                               ),
                             ],
                           ),
@@ -220,25 +251,57 @@ class _HomeState extends State<Home> {
                                 top: 8,
                                 left: 24,
                                 right: 8,
-                                backgroudColorCard: Colors.white,
-                                backgroundColorIcon: Color(0xff7283c0),
+                                backgroudColorCard:
+                                    categorySelected == CategoryState.newest
+                                        ? kPrimaryColor
+                                        : Colors.white,
+                                backgroundColorIcon:
+                                    categorySelected == CategoryState.newest
+                                        ? Colors.white
+                                        : const Color(0xff7283c0),
                                 text: 'Newest',
                                 icon: Icons.star_border_rounded,
-                                textColor: Colors.black,
-                                iconColor: Colors.white,
-                                isPressed: false,
+                                textColor:
+                                    categorySelected == CategoryState.newest
+                                        ? Colors.white
+                                        : Colors.black,
+                                iconColor:
+                                    categorySelected == CategoryState.newest
+                                        ? kPrimaryColor
+                                        : Colors.white,
+                                pressed: () {
+                                  setState(() {
+                                    categorySelected = CategoryState.newest;
+                                  });
+                                },
                               ),
                               CategoryCards(
                                 top: 8,
                                 left: 8,
                                 right: 16,
-                                backgroudColorCard: Colors.white,
-                                backgroundColorIcon: Color(0xff54AD67),
+                                backgroudColorCard:
+                                    categorySelected == CategoryState.advance
+                                        ? kPrimaryColor
+                                        : Colors.white,
+                                backgroundColorIcon:
+                                    categorySelected == CategoryState.advance
+                                        ? Colors.white
+                                        : const Color(0xff54AD67),
                                 text: 'Advance',
                                 icon: Icons.bookmark_outline,
-                                textColor: Colors.black,
-                                iconColor: Colors.white,
-                                isPressed: false,
+                                textColor:
+                                    categorySelected == CategoryState.advance
+                                        ? Colors.white
+                                        : Colors.black,
+                                iconColor:
+                                    categorySelected == CategoryState.advance
+                                        ? kPrimaryColor
+                                        : Colors.white,
+                                pressed: () {
+                                  setState(() {
+                                    categorySelected = CategoryState.advance;
+                                  });
+                                },
                               ),
                             ],
                           ),

@@ -1,8 +1,9 @@
 import 'package:eft_project/constants.dart';
+import 'package:eft_project/enum.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCards extends StatefulWidget {
-   CategoryCards({
+  CategoryCards({
     this.top,
     this.backgroudColorCard,
     this.backgroundColorIcon,
@@ -12,7 +13,7 @@ class CategoryCards extends StatefulWidget {
     this.right,
     this.text,
     this.textColor,
-    this.isPressed,
+    this.pressed,
     Key key,
   }) : super(key: key);
   final double top;
@@ -24,8 +25,7 @@ class CategoryCards extends StatefulWidget {
   final Color backgroudColorCard;
   final Color backgroundColorIcon;
   final Color iconColor;
-   bool isPressed;
-
+  final Function pressed;
   @override
   State<CategoryCards> createState() => _CategoryCardsState();
 }
@@ -35,11 +35,7 @@ class _CategoryCardsState extends State<CategoryCards> {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: () {
-          setState(() {
-            widget.isPressed = !widget.isPressed;
-          });
-        },
+        onTap: widget.pressed,
         child: Container(
           margin: EdgeInsets.only(
               top: widget.top, left: widget.left, right: widget.right),
@@ -51,15 +47,15 @@ class _CategoryCardsState extends State<CategoryCards> {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
-                  color: widget.isPressed
-                      ? Colors.white
-                      : widget.backgroundColorIcon,
+                  // color: widget.isPressed
+                  //     ? Colors.white
+                  //     : widget.backgroundColorIcon,
+                  color: widget.backgroundColorIcon,
                 ),
                 margin: const EdgeInsets.only(left: 8),
                 child: Icon(
                   widget.icon,
-                  color:
-                      widget.isPressed ? Color(0xff5CC7ff) : widget.iconColor,
+                  color: widget.iconColor,
                 ),
               ),
               const SizedBox(
@@ -68,7 +64,8 @@ class _CategoryCardsState extends State<CategoryCards> {
               Text(
                 widget.text,
                 style: TextStyle(
-                  color: widget.isPressed ? Colors.white : widget.textColor,
+                  //color: widget.isPressed ? Colors.white : widget.textColor,
+                  color: widget.textColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -76,7 +73,8 @@ class _CategoryCardsState extends State<CategoryCards> {
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
-            color: widget.isPressed ? kPrimaryColor : widget.backgroudColorCard,
+            //color: widget.isPressed ? kPrimaryColor : widget.backgroudColorCard,
+            color: widget.backgroudColorCard,
           ),
         ),
       ),
