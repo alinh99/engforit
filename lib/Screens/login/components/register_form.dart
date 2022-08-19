@@ -63,7 +63,9 @@ class _RegisterFormState extends State<RegisterForm> {
                       composition: composition,
                       height: 0.2,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      print('worked');
+                    },
                   ),
                   const SizedBox(height: 40),
                   const RoundedInput(icon: Icons.mail, hint: 'Username'),

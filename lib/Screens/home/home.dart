@@ -1,8 +1,9 @@
 import 'package:eft_project/Screens/home/components/category_cards.dart';
 import 'package:eft_project/Screens/home/components/lesson_cards.dart';
-import 'package:eft_project/components/icon_button.dart';
+import 'package:eft_project/Screens/login/login.dart';
+import 'package:eft_project/components/bottom_navigation_bar.dart';
 import 'package:eft_project/constants.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:eft_project/enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
@@ -17,6 +18,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   PageController controller = PageController();
+  int selectedIndex = 0;
   Future<LottieComposition> compositionReading;
   Future<LottieComposition> compositionListening;
   Future<LottieComposition> compositionSpeaking;
@@ -37,8 +39,24 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    bool hasBeenPressed = false;
     return Scaffold(
-      bottomNavigationBar: const CustomBottomNavBar(),
+      bottomNavigationBar: Container(
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              spreadRadius: 5,
+              blurRadius: 10,
+            ),
+          ],
+        ),
+        child: const CustomBottomNavBar(selectedMenu: MenuState.home),
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -52,7 +70,8 @@ class _HomeState extends State<Home> {
                         height: 8,
                       ),
                       Container(
-                        margin: const EdgeInsets.only(right: 136),
+                        alignment: Alignment.topLeft,
+                        margin: const EdgeInsets.only(right: 114),
                         child: Text(
                           'Hello,',
                           style: TextStyle(
@@ -60,6 +79,7 @@ class _HomeState extends State<Home> {
                               color: Colors
                                   .grey[350] //fontWeight: FontWeight.bold,
                               ),
+                          textAlign: TextAlign.start,
                         ),
                       ),
                       const SizedBox(
@@ -68,7 +88,7 @@ class _HomeState extends State<Home> {
                       Container(
                         margin: const EdgeInsets.only(left: 20),
                         child: const Text(
-                          'Alonzo Lee 👏',
+                          'Dien\'s pet 👏',
                           style: TextStyle(
                             fontSize: 32,
                             color: Colors.black,
@@ -167,17 +187,18 @@ class _HomeState extends State<Home> {
                       Column(
                         children: [
                           Row(
-                            children: const [
+                            children: [
                               CategoryCards(
                                 top: 8,
                                 left: 24,
                                 right: 8,
-                                backgroudColorCard: kPrimaryColor,
-                                backgroundColorIcon: Colors.white,
+                                backgroudColorCard: Colors.white,
+                                backgroundColorIcon: Colors.red,
                                 text: 'All Topic',
                                 icon: Icons.local_fire_department_outlined,
-                                textColor: Colors.white,
-                                iconColor: Color(0xff5CC7ff),
+                                textColor: Colors.black,
+                                iconColor: Colors.white,
+                                isPressed: true,
                               ),
                               CategoryCards(
                                 top: 8,
@@ -189,11 +210,12 @@ class _HomeState extends State<Home> {
                                 icon: Icons.lightbulb_outline,
                                 textColor: Colors.black,
                                 iconColor: Colors.white,
+                                isPressed: false,
                               ),
                             ],
                           ),
                           Row(
-                            children: const [
+                            children: [
                               CategoryCards(
                                 top: 8,
                                 left: 24,
@@ -204,6 +226,7 @@ class _HomeState extends State<Home> {
                                 icon: Icons.star_border_rounded,
                                 textColor: Colors.black,
                                 iconColor: Colors.white,
+                                isPressed: false,
                               ),
                               CategoryCards(
                                 top: 8,
@@ -215,6 +238,7 @@ class _HomeState extends State<Home> {
                                 icon: Icons.bookmark_outline,
                                 textColor: Colors.black,
                                 iconColor: Colors.white,
+                                isPressed: false,
                               ),
                             ],
                           ),
@@ -270,76 +294,6 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class CustomBottomNavBar extends StatelessWidget {
-  const CustomBottomNavBar({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      height: 55,
-      decoration: const BoxDecoration(
-        //color: Color(),
-        borderRadius: BorderRadius.vertical(
-          top: Radius.circular(20),
-        ),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            spreadRadius: 5,
-            blurRadius: 10,
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: IconButtons(
-                    icon: CupertinoIcons.home,
-                    onTap: () {},
-                  ),
-                ),
-                Expanded(
-                  child: IconButtons(
-                    icon: CupertinoIcons.star,
-                    onTap: () {},
-                  ),
-                ),
-                Expanded(
-                  child: IconButtons(
-                    icon: CupertinoIcons.book,
-                    onTap: () {},
-                  ),
-                ),
-                Expanded(
-                  child: IconButtons(
-                    icon: CupertinoIcons.bell,
-                    onTap: () {},
-                  ),
-                ),
-                Expanded(
-                  child: IconButtons(
-                    icon: CupertinoIcons.person,
-                    onTap: () {},
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }

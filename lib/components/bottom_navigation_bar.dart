@@ -1,12 +1,14 @@
 import 'package:eft_project/components/icon_button.dart';
+import 'package:eft_project/enum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
+    this.selectedMenu,
     Key key,
   }) : super(key: key);
-
+  final MenuState selectedMenu;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,32 +36,56 @@ class CustomBottomNavBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
+                    child: IconButtons(
+                  icon: MenuState.home != selectedMenu
+                      ? CupertinoIcons.home
+                      : Icons.home_filled,
+                  onTap: () {},
+                  iconColor: MenuState.home != selectedMenu
+                      ? const Color(0xFFBBE4FA)
+                      : const Color(0xFF54C3FF),
+                )),
+                Expanded(
                   child: IconButtons(
-                    icon: CupertinoIcons.home,
+                    icon: MenuState.favourite != selectedMenu
+                        ? CupertinoIcons.star
+                        : CupertinoIcons.star_fill,
                     onTap: () {},
+                    iconColor: MenuState.favourite != selectedMenu
+                        ? const Color(0xFFBBE4FA)
+                        : const Color(0xFF54C3FF),
                   ),
                 ),
                 Expanded(
                   child: IconButtons(
-                    icon: CupertinoIcons.star,
+                    icon: MenuState.course != selectedMenu
+                        ? CupertinoIcons.book
+                        : CupertinoIcons.book_fill,
                     onTap: () {},
+                    iconColor: MenuState.course != selectedMenu
+                        ? const Color(0xFFBBE4FA)
+                        : const Color(0xFF54C3FF),
                   ),
                 ),
                 Expanded(
                   child: IconButtons(
-                    icon: CupertinoIcons.book,
+                    icon: MenuState.quiz != selectedMenu
+                        ? CupertinoIcons.question_circle
+                        : CupertinoIcons.question_circle_fill,
                     onTap: () {},
+                    iconColor: MenuState.quiz != selectedMenu
+                        ? const Color(0xFFBBE4FA)
+                        : const Color(0xFF54C3FF),
                   ),
                 ),
                 Expanded(
                   child: IconButtons(
-                    icon: CupertinoIcons.bell,
-                    onTap: () {},
-                  ),
-                ),
-                Expanded(
-                  child: IconButtons(
-                    icon: CupertinoIcons.person,
+                    icon: MenuState.profile != selectedMenu
+                        ? CupertinoIcons.person
+                        : CupertinoIcons.person_fill,
+                    iconColor: MenuState.profile != selectedMenu
+                        ? const Color(0xFFBBE4FA)
+                        : const Color(0xFF54C3FF),
                     onTap: () {},
                   ),
                 ),
