@@ -1,3 +1,5 @@
+import 'package:eft_project/Screens/courses/courses.dart';
+import 'package:eft_project/Screens/home/home.dart';
 import 'package:eft_project/components/icon_buttons.dart';
 import 'package:eft_project/enum.dart';
 import 'package:flutter/cupertino.dart';
@@ -5,8 +7,8 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CustomBottomNavBar extends StatefulWidget {
-  CustomBottomNavBar({Key key, this.selected}) : super(key: key);
-  MenuState selected;
+  const CustomBottomNavBar({Key key, this.selected}) : super(key: key);
+  final MenuState selected;
   @override
   State<CustomBottomNavBar> createState() => _CustomBottomNavBarState();
 }
@@ -46,96 +48,92 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButtons(
-                      flexValue: widget.selected == MenuState.home ? 2 : 1,
-                      icon: widget.selected == MenuState.home
+                      flexValue: MenuState.home == widget.selected ? 2 : 1,
+                      icon: MenuState.home == widget.selected
                           ? Icons.home
                           : CupertinoIcons.home,
-                      text: widget.selected == MenuState.home ? 'Home' : '',
-                      backgroundColor: widget.selected == MenuState.home
+                      text: MenuState.home == widget.selected ? 'Home' : '',
+                      backgroundColor: MenuState.home == widget.selected
                           ? const Color(0xFF54C2FF)
                           : Colors.white,
-                      iconColor: widget.selected == MenuState.home
+                      iconColor: MenuState.home == widget.selected
                           ? Colors.white
                           : const Color(0xffdff3ff),
                       pressed: () {
-                        setState(() {
-                          widget.selected = MenuState.home;
-                        });
+                        Navigator.pushNamed(context, Home.id);
+                      },
+                    ),
+                    IconButtons(
+                      flexValue: MenuState.course == widget.selected ? 2 : 1,
+                      icon: MenuState.course == widget.selected
+                          ? CupertinoIcons.book_fill
+                          : CupertinoIcons.book,
+                      text: MenuState.course == widget.selected ? 'Course' : '',
+                      backgroundColor: MenuState.course == widget.selected
+                          ? const Color(0xFF54C2FF)
+                          : Colors.white,
+                      iconColor: MenuState.course == widget.selected
+                          ? Colors.white
+                          : const Color(0xffdff3ff),
+                      pressed: () {
+                        Navigator.pushNamed(context, Courses.id);
                       },
                     ),
                     IconButtons(
                       flexValue: widget.selected == MenuState.favourite ? 2 : 1,
-                      icon: widget.selected == MenuState.favourite
+                      icon: MenuState.favourite == widget.selected
                           ? CupertinoIcons.star_fill
                           : CupertinoIcons.star,
-                      text: widget.selected == MenuState.favourite
+                      text: MenuState.favourite == widget.selected
                           ? 'Favourite'
                           : '',
-                      backgroundColor: widget.selected == MenuState.favourite
+                      backgroundColor: MenuState.favourite == widget.selected
                           ? const Color(0xFF54C2FF)
                           : Colors.white,
-                      iconColor: widget.selected == MenuState.favourite
+                      iconColor: MenuState.favourite == widget.selected
                           ? Colors.white
                           : const Color(0xffdff3ff),
                       pressed: () {
-                        setState(() {
-                          widget.selected = MenuState.favourite;
-                        });
+                        // setState(() {
+                        //   widget.selected = MenuState.favourite;
+                        // });
                       },
                     ),
                     IconButtons(
-                      flexValue: widget.selected == MenuState.course ? 2 : 1,
-                      icon: widget.selected == MenuState.course
-                          ? CupertinoIcons.book_fill
-                          : CupertinoIcons.book,
-                      text: widget.selected == MenuState.course ? 'Course' : '',
-                      backgroundColor: widget.selected == MenuState.course
-                          ? const Color(0xFF54C2FF)
-                          : Colors.white,
-                      iconColor: widget.selected == MenuState.course
-                          ? Colors.white
-                          : const Color(0xffdff3ff),
-                      pressed: () {
-                        setState(() {
-                          widget.selected = MenuState.course;
-                        });
-                      },
-                    ),
-                    IconButtons(
-                      flexValue: widget.selected == MenuState.quiz ? 2 : 1,
-                      icon: widget.selected == MenuState.quiz
+                      flexValue: MenuState.quiz == widget.selected ? 2 : 1,
+                      icon: MenuState.quiz == widget.selected
                           ? CupertinoIcons.question_circle_fill
                           : CupertinoIcons.question_circle,
-                      text: widget.selected == MenuState.quiz ? 'Quiz' : '',
-                      backgroundColor: widget.selected == MenuState.quiz
+                      text: MenuState.quiz == widget.selected ? 'Quiz' : '',
+                      backgroundColor: MenuState.quiz == widget.selected
                           ? const Color(0xFF54C2FF)
                           : Colors.white,
-                      iconColor: widget.selected == MenuState.quiz
+                      iconColor: MenuState.quiz == widget.selected
                           ? Colors.white
                           : const Color(0xffdff3ff),
                       pressed: () {
-                        setState(() {
-                          widget.selected = MenuState.quiz;
-                        });
+                        // setState(() {
+                        //   widget.selected = MenuState.quiz;
+                        // });
                       },
                     ),
                     IconButtons(
-                      flexValue: widget.selected == MenuState.profile ? 2 : 1,
-                      icon: widget.selected == MenuState.profile
+                      flexValue: MenuState.profile == widget.selected ? 2 : 1,
+                      icon: MenuState.profile == widget.selected
                           ? CupertinoIcons.person_fill
                           : CupertinoIcons.person,
                       text:
-                          widget.selected == MenuState.profile ? 'Profile' : '',
-                      backgroundColor: widget.selected == MenuState.profile
+                          MenuState.profile == widget.selected ? 'Profile' : '',
+                      backgroundColor: MenuState.profile == widget.selected
                           ? const Color(0xFF54C2FF)
                           : Colors.white,
-                      iconColor: widget.selected == MenuState.profile
+                      iconColor: MenuState.profile == widget.selected
                           ? Colors.white
                           : const Color(0xffdff3ff),
                       pressed: () {
-                        setState(() {
-                          widget.selected = MenuState.profile;
-                        });
+                        // setState(() {
+                        //   widget.selected = MenuState.profile;
+                        // });
                       },
                     ),
                   ],

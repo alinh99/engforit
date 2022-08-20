@@ -20,35 +20,38 @@ class IconButtons extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       flex: flexValue,
-      child: Container(
-        padding: const EdgeInsets.only(left: 5, right: 32, top: 8, bottom: 8),
-        margin: const EdgeInsets.only(left: 8),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: backgroundColor,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Icon(
-              icon,
-              color: iconColor,
-            ),
-            const SizedBox(
-              width: 12,
-            ),
-            Center(
-              child: Text(
-                text,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
-                textAlign: TextAlign.center,
+      child: InkWell(
+        onTap: pressed,
+        child: Container(
+          padding: const EdgeInsets.only(left: 5, right: 32, top: 8, bottom: 8),
+          margin: const EdgeInsets.only(left: 8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: backgroundColor,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Icon(
+                icon,
+                color: iconColor,
               ),
-            )
-          ],
+              const SizedBox(
+                width: 12,
+              ),
+              Center(
+                child: Text(
+                  text,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

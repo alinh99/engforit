@@ -1,3 +1,4 @@
+import 'package:eft_project/Screens/courses/courses.dart';
 import 'package:eft_project/Screens/home/home.dart';
 import 'package:eft_project/Screens/login/login.dart';
 import 'package:eft_project/Screens/login/successfully_login.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         Home.id: (context) => const Home(),
         SuccessfulLogin.id: (context) => const SuccessfulLogin(),
         SuccessfulRegister.id: (context) => const SuccessfulRegister(),
+        Courses.id: (context) => const Courses(),
       },
     );
   }

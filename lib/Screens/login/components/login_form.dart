@@ -1,5 +1,5 @@
 import 'package:eft_project/Screens/login/successfully_login.dart';
-import 'package:eft_project/Screens/login/successfully_register.dart';
+
 import 'package:eft_project/components/lottie_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:eft_project/components/rounded_button.dart';
