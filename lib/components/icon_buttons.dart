@@ -8,6 +8,7 @@ class IconButtons extends StatelessWidget {
     this.iconColor,
     this.backgroundColor,
     this.pressed,
+    this.widthSize,
     Key key,
   }) : super(key: key);
   final int flexValue;
@@ -16,6 +17,7 @@ class IconButtons extends StatelessWidget {
   final Color iconColor;
   final Color backgroundColor;
   final Function pressed;
+  final double widthSize;
   @override
   Widget build(BuildContext context) {
     return Expanded(

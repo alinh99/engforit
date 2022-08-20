@@ -1,4 +1,4 @@
-import 'package:eft_project/Screens/home/components/category_cards.dart';
+import 'package:eft_project/components/category_cards.dart';
 import 'package:eft_project/Screens/home/components/lesson_cards.dart';
 import 'package:eft_project/components/bottom_navigation_bar.dart';
 import 'package:eft_project/constants.dart';
@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomBottomNavBar(selected: MenuState.home),
+      bottomNavigationBar: const CustomBottomNavBar(selected: MenuState.home),
       body: SafeArea(
         child: Column(
           children: [
@@ -148,7 +148,7 @@ class _HomeState extends State<Home> {
                               color: kPrimaryColor,
                             ),
                             child: const Icon(
-                              Icons.settings,
+                              Icons.filter_list,
                               color: Colors.white,
                             ),
                           ),
@@ -176,9 +176,9 @@ class _HomeState extends State<Home> {
                           Row(
                             children: [
                               CategoryCards(
-                                top: 8,
-                                left: 24,
-                                right: 8,
+                                topMargin: 8,
+                                leftMargin: 24,
+                                rightMargin: 8,
                                 backgroudColorCard:
                                     categorySelected == CategoryState.all
                                         ? kPrimaryColor
@@ -188,7 +188,9 @@ class _HomeState extends State<Home> {
                                         ? Colors.white
                                         : Colors.red,
                                 text: 'All Topic',
-                                icon: Icons.local_fire_department_outlined,
+                                icon: categorySelected == CategoryState.all
+                                    ? Icons.local_fire_department
+                                    : Icons.local_fire_department_outlined,
                                 textColor: categorySelected == CategoryState.all
                                     ? Colors.white
                                     : Colors.black,
@@ -200,11 +202,12 @@ class _HomeState extends State<Home> {
                                     categorySelected = CategoryState.all;
                                   });
                                 },
+                                widthSize: 16,
                               ),
                               CategoryCards(
-                                top: 8,
-                                left: 8,
-                                right: 16,
+                                topMargin: 8,
+                                leftMargin: 8,
+                                rightMargin: 16,
                                 backgroudColorCard:
                                     categorySelected == CategoryState.popular
                                         ? kPrimaryColor
@@ -214,7 +217,9 @@ class _HomeState extends State<Home> {
                                         ? Colors.white
                                         : const Color(0xffF5AE2C),
                                 text: 'Popular',
-                                icon: Icons.lightbulb_outline,
+                                icon: categorySelected == CategoryState.popular
+                                    ? Icons.lightbulb
+                                    : Icons.lightbulb_outline,
                                 textColor:
                                     categorySelected == CategoryState.popular
                                         ? Colors.white
@@ -228,15 +233,16 @@ class _HomeState extends State<Home> {
                                     categorySelected = CategoryState.popular;
                                   });
                                 },
+                                widthSize: 16,
                               ),
                             ],
                           ),
                           Row(
                             children: [
                               CategoryCards(
-                                top: 8,
-                                left: 24,
-                                right: 8,
+                                topMargin: 8,
+                                leftMargin: 24,
+                                rightMargin: 8,
                                 backgroudColorCard:
                                     categorySelected == CategoryState.newest
                                         ? kPrimaryColor
@@ -246,7 +252,9 @@ class _HomeState extends State<Home> {
                                         ? Colors.white
                                         : const Color(0xff7283c0),
                                 text: 'Newest',
-                                icon: Icons.star_border_rounded,
+                                icon: categorySelected == CategoryState.newest
+                                    ? Icons.star
+                                    : Icons.star_border,
                                 textColor:
                                     categorySelected == CategoryState.newest
                                         ? Colors.white
@@ -260,11 +268,12 @@ class _HomeState extends State<Home> {
                                     categorySelected = CategoryState.newest;
                                   });
                                 },
+                                widthSize: 16,
                               ),
                               CategoryCards(
-                                top: 8,
-                                left: 8,
-                                right: 16,
+                                topMargin: 8,
+                                leftMargin: 8,
+                                rightMargin: 16,
                                 backgroudColorCard:
                                     categorySelected == CategoryState.advance
                                         ? kPrimaryColor
@@ -274,7 +283,9 @@ class _HomeState extends State<Home> {
                                         ? Colors.white
                                         : const Color(0xff54AD67),
                                 text: 'Advance',
-                                icon: Icons.bookmark_outline,
+                                icon: categorySelected == CategoryState.advance
+                                    ? Icons.bookmark
+                                    : Icons.bookmark_outline,
                                 textColor:
                                     categorySelected == CategoryState.advance
                                         ? Colors.white
@@ -288,6 +299,7 @@ class _HomeState extends State<Home> {
                                     categorySelected = CategoryState.advance;
                                   });
                                 },
+                                widthSize: 16,
                               ),
                             ],
                           ),

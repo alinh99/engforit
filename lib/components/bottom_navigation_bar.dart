@@ -50,8 +50,8 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                     IconButtons(
                       flexValue: MenuState.home == widget.selected ? 2 : 1,
                       icon: MenuState.home == widget.selected
-                          ? Icons.home
-                          : CupertinoIcons.home,
+                          ? CupertinoIcons.house_fill
+                          : CupertinoIcons.house,
                       text: MenuState.home == widget.selected ? 'Home' : '',
                       backgroundColor: MenuState.home == widget.selected
                           ? const Color(0xFF54C2FF)
@@ -93,11 +93,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                       iconColor: MenuState.favourite == widget.selected
                           ? Colors.white
                           : const Color(0xffdff3ff),
-                      pressed: () {
-                        // setState(() {
-                        //   widget.selected = MenuState.favourite;
-                        // });
-                      },
+                      pressed: () {},
                     ),
                     IconButtons(
                       flexValue: MenuState.quiz == widget.selected ? 2 : 1,

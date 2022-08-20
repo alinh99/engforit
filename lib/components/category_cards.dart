@@ -2,21 +2,22 @@ import 'package:flutter/material.dart';
 
 class CategoryCards extends StatefulWidget {
   const CategoryCards({
-    this.top,
+    this.topMargin,
     this.backgroudColorCard,
     this.backgroundColorIcon,
     this.icon,
     this.iconColor,
-    this.left,
-    this.right,
+    this.leftMargin,
+    this.rightMargin,
     this.text,
     this.textColor,
     this.pressed,
+    this.widthSize,
     Key key,
   }) : super(key: key);
-  final double top;
-  final double left;
-  final double right;
+  final double topMargin;
+  final double leftMargin;
+  final double rightMargin;
   final String text;
   final Color textColor;
   final IconData icon;
@@ -24,6 +25,7 @@ class CategoryCards extends StatefulWidget {
   final Color backgroundColorIcon;
   final Color iconColor;
   final Function pressed;
+  final double widthSize;
   @override
   State<CategoryCards> createState() => _CategoryCardsState();
 }
@@ -36,9 +38,11 @@ class _CategoryCardsState extends State<CategoryCards> {
         onTap: widget.pressed,
         child: Container(
           margin: EdgeInsets.only(
-              top: widget.top, left: widget.left, right: widget.right),
+            top: widget.topMargin,
+            left: widget.leftMargin,
+            right: widget.rightMargin,
+          ),
           height: 60,
-          width: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
             color: widget.backgroudColorCard,
@@ -57,8 +61,8 @@ class _CategoryCardsState extends State<CategoryCards> {
                   color: widget.iconColor,
                 ),
               ),
-              const SizedBox(
-                width: 16,
+              SizedBox(
+                width: widget.widthSize,
               ),
               Text(
                 widget.text,
