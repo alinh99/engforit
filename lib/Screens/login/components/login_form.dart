@@ -1,3 +1,5 @@
+import 'package:eft_project/Screens/login/successfully_login.dart';
+import 'package:eft_project/Screens/login/successfully_register.dart';
 import 'package:eft_project/components/lottie_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:eft_project/components/rounded_button.dart';
@@ -63,7 +65,12 @@ class _LoginFormState extends State<LoginForm> {
                 const RoundedInput(icon: Icons.mail, hint: 'Username'),
                 const RoundedPasswordInput(hint: 'Password'),
                 const SizedBox(height: 10),
-                const RoundedButton(title: 'LOGIN'),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, SuccessfulLogin.id);
+                  },
+                  child: const RoundedButton(title: 'LOGIN'),
+                ),
                 const SizedBox(height: 10),
               ],
             ),

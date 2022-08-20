@@ -1,3 +1,4 @@
+import 'package:eft_project/Screens/login/successfully_register.dart';
 import 'package:eft_project/components/lottie_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:eft_project/components/rounded_button.dart';
@@ -67,12 +68,18 @@ class _RegisterFormState extends State<RegisterForm> {
                       //print('worked');
                     },
                   ),
-                  const SizedBox(height: 40),
-                  const RoundedInput(icon: Icons.mail, hint: 'Username'),
+                  const SizedBox(height: 10),
+                  const RoundedInput(icon: Icons.mail, hint: 'Email'),
                   const RoundedInput(icon: Icons.face_rounded, hint: 'Name'),
+                  const RoundedInput(icon: Icons.cake_outlined, hint: 'Age'),
                   const RoundedPasswordInput(hint: 'Password'),
                   const SizedBox(height: 40),
-                  const RoundedButton(title: 'SIGN UP'),
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, SuccessfulRegister.id);
+                    },
+                    child: const RoundedButton(title: 'SIGN UP'),
+                  ),
                   const SizedBox(height: 40),
                 ],
               ),
