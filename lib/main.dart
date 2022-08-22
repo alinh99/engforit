@@ -1,4 +1,5 @@
 import 'package:eft_project/Screens/courses/courses.dart';
+import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfully.dart';
 import 'package:eft_project/Screens/enroll_lesson/listening.dart';
 import 'package:eft_project/Screens/enroll_lesson/reading.dart';
 import 'package:eft_project/Screens/enroll_lesson/speaking.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         Reading.id:(context) => const Reading(),
         Speaking.id: (context) => const Speaking(),
         Writing.id: (context) => const Writing(),
+        SuccessfulEnroll.id: (context) => const SuccessfulEnroll(),
       },
     );
   }

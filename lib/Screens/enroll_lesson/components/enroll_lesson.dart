@@ -1,4 +1,5 @@
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_button.dart';
+import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfully.dart';
 import 'package:eft_project/Screens/enroll_lesson/components/lesson_detail.dart';
 import 'package:eft_project/components/lottie_animation.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,9 @@ class _EnrollLessonState extends State<EnrollLesson> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // bottomNavigationBar: EnrollButton(tapped: () {
+      //   Navigator.pushNamed(context, SuccessfulEnroll.id);
+      // }),
       bottomNavigationBar: const EnrollButton(),
       backgroundColor: const Color(0xFFEFF9FF),
       appBar: AppBar(

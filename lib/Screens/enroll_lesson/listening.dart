@@ -1,5 +1,6 @@
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
@@ -25,10 +26,12 @@ class _ListeningState extends State<Listening> {
 
   @override
   Widget build(BuildContext context) {
-    return EnrollLesson(
-      composition: compositionListening,
-      title: 'Listening',
-      color: const Color(0xffF5AE2C),
+    return Scaffold(
+      body: EnrollLesson(
+        composition: compositionListening,
+        title: 'Listening',
+        color: const Color(0xffF5AE2C),
+      ),
     );
   }
 }
