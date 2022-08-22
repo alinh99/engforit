@@ -38,9 +38,13 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return MediaQuery.of(context).orientation == Orientation.landscape
         ? SingleChildScrollView(
+            scrollDirection: Axis.vertical,
             child: buildSplashScreen(context, 1.01, 0.4, 20.0, 10.0),
           )
-        : buildSplashScreen(context, 0.57, 1, 40.0, 20.0);
+        : SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: buildSplashScreen(context, 0.57, 1, 40.0, 20.0),
+          );
   }
 
   Column buildSplashScreen(

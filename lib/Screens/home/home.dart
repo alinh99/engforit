@@ -1,3 +1,7 @@
+import 'package:eft_project/Screens/enroll_lesson/listening.dart';
+import 'package:eft_project/Screens/enroll_lesson/reading.dart';
+import 'package:eft_project/Screens/enroll_lesson/speaking.dart';
+import 'package:eft_project/Screens/enroll_lesson/writing.dart';
 import 'package:eft_project/components/category_cards.dart';
 import 'package:eft_project/Screens/home/components/lesson_cards.dart';
 import 'package:eft_project/components/bottom_navigation_bar.dart';
@@ -176,6 +180,7 @@ class _HomeState extends State<Home> {
                           Row(
                             children: [
                               CategoryCards(
+                                heightSize: 60,
                                 topMargin: 8,
                                 leftMargin: 24,
                                 rightMargin: 8,
@@ -205,6 +210,7 @@ class _HomeState extends State<Home> {
                                 widthSize: 16,
                               ),
                               CategoryCards(
+                                heightSize: 60,
                                 topMargin: 8,
                                 leftMargin: 8,
                                 rightMargin: 16,
@@ -240,6 +246,7 @@ class _HomeState extends State<Home> {
                           Row(
                             children: [
                               CategoryCards(
+                                heightSize: 60,
                                 topMargin: 8,
                                 leftMargin: 24,
                                 rightMargin: 8,
@@ -271,6 +278,7 @@ class _HomeState extends State<Home> {
                                 widthSize: 16,
                               ),
                               CategoryCards(
+                                heightSize: 60,
                                 topMargin: 8,
                                 leftMargin: 8,
                                 rightMargin: 16,
@@ -318,6 +326,9 @@ class _HomeState extends State<Home> {
                                   cardColor: const Color(0xFF54C3FF),
                                   totalLesson: 10,
                                   min: 40,
+                                  tapped: () {
+                                    Navigator.pushNamed(context, Reading.id);
+                                  },
                                 ),
                                 LessonCards(
                                   composition: compositionListening,
@@ -325,6 +336,9 @@ class _HomeState extends State<Home> {
                                   cardColor: const Color(0xFFF5AE2C),
                                   totalLesson: 10,
                                   min: 60,
+                                  tapped: () {
+                                    Navigator.pushNamed(context, Listening.id);
+                                  },
                                 ),
                                 LessonCards(
                                   composition: compositionSpeaking,
@@ -332,6 +346,9 @@ class _HomeState extends State<Home> {
                                   cardColor: const Color(0xFF7383C0),
                                   totalLesson: 10,
                                   min: 60,
+                                  tapped: () {
+                                    Navigator.pushNamed(context, Speaking.id);
+                                  },
                                 ),
                                 LessonCards(
                                   composition: compositionWriting,
@@ -339,6 +356,9 @@ class _HomeState extends State<Home> {
                                   cardColor: const Color(0xFF5AE2E2),
                                   totalLesson: 10,
                                   min: 60,
+                                  tapped: () {
+                                    Navigator.pushNamed(context, Writing.id);
+                                  },
                                 ),
                               ],
                             ),

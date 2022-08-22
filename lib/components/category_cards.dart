@@ -13,6 +13,7 @@ class CategoryCards extends StatefulWidget {
     this.textColor,
     this.pressed,
     this.widthSize,
+    this.heightSize,
     Key key,
   }) : super(key: key);
   final double topMargin;
@@ -26,6 +27,7 @@ class CategoryCards extends StatefulWidget {
   final Color iconColor;
   final Function pressed;
   final double widthSize;
+  final double heightSize;
   @override
   State<CategoryCards> createState() => _CategoryCardsState();
 }
@@ -42,7 +44,7 @@ class _CategoryCardsState extends State<CategoryCards> {
             left: widget.leftMargin,
             right: widget.rightMargin,
           ),
-          height: 60,
+          height: widget.heightSize,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(50),
             color: widget.backgroudColorCard,

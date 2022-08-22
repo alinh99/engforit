@@ -1,4 +1,8 @@
 import 'package:eft_project/Screens/courses/courses.dart';
+import 'package:eft_project/Screens/enroll_lesson/listening.dart';
+import 'package:eft_project/Screens/enroll_lesson/reading.dart';
+import 'package:eft_project/Screens/enroll_lesson/speaking.dart';
+import 'package:eft_project/Screens/enroll_lesson/writing.dart';
 import 'package:eft_project/Screens/home/home.dart';
 import 'package:eft_project/Screens/login/login.dart';
 import 'package:eft_project/Screens/login/successfully_login.dart';
@@ -30,6 +34,10 @@ class MyApp extends StatelessWidget {
         SuccessfulLogin.id: (context) => const SuccessfulLogin(),
         SuccessfulRegister.id: (context) => const SuccessfulRegister(),
         Courses.id: (context) => const Courses(),
+        Listening.id: (context) => const Listening(),
+        Reading.id:(context) => const Reading(),
+        Speaking.id: (context) => const Speaking(),
+        Writing.id: (context) => const Writing(),
       },
     );
   }

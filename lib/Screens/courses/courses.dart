@@ -1,4 +1,8 @@
 import 'package:eft_project/Screens/courses/components/course_card.dart';
+import 'package:eft_project/Screens/enroll_lesson/listening.dart';
+import 'package:eft_project/Screens/enroll_lesson/reading.dart';
+import 'package:eft_project/Screens/enroll_lesson/speaking.dart';
+import 'package:eft_project/Screens/enroll_lesson/writing.dart';
 import 'package:eft_project/components/category_cards.dart';
 import 'package:eft_project/components/bottom_navigation_bar.dart';
 import 'package:eft_project/constants.dart';
@@ -69,6 +73,7 @@ class _CoursesState extends State<Courses> {
                   child: Row(
                     children: [
                       CategoryCards(
+                        heightSize: 60,
                         topMargin: 16,
                         leftMargin: 16,
                         rightMargin: 16,
@@ -96,6 +101,7 @@ class _CoursesState extends State<Courses> {
                         widthSize: 24,
                       ),
                       CategoryCards(
+                        heightSize: 60,
                         topMargin: 16,
                         leftMargin: 0,
                         rightMargin: 16,
@@ -123,6 +129,7 @@ class _CoursesState extends State<Courses> {
                         widthSize: 24,
                       ),
                       CategoryCards(
+                        heightSize: 60,
                         topMargin: 16,
                         leftMargin: 0,
                         rightMargin: 0,
@@ -162,6 +169,9 @@ class _CoursesState extends State<Courses> {
                     'Reading a book or a passage helps to improve the vocabulary and concentration of a learner',
                 bottomMargin: 16,
                 topMargin: 16,
+                tapped: () {
+                  Navigator.pushNamed(context, Reading.id);
+                },
               ),
               CourseCard(
                 composition: compositionListening,
@@ -171,6 +181,9 @@ class _CoursesState extends State<Courses> {
                     'It improves the imagination and vocabulary of a learner. While listening we used to visualize the scene and memorize in our memory',
                 bottomMargin: 16,
                 topMargin: 16,
+                tapped: () {
+                  Navigator.pushNamed(context, Listening.id);
+                },
               ),
               CourseCard(
                 composition: compositionSpeaking,
@@ -180,6 +193,9 @@ class _CoursesState extends State<Courses> {
                     'When a learner speaks, he gets to know his mistakes and he can improve it further',
                 bottomMargin: 16,
                 topMargin: 16,
+                tapped: () {
+                  Navigator.pushNamed(context, Speaking.id);
+                },
               ),
               CourseCard(
                 composition: compositionWriting,
@@ -189,6 +205,9 @@ class _CoursesState extends State<Courses> {
                     'When we write we get to know, what we are writing and do we know the spellings of all words',
                 bottomMargin: 32,
                 topMargin: 16,
+                tapped: () {
+                  Navigator.pushNamed(context, Writing.id);
+                },
               ),
             ],
           ),
