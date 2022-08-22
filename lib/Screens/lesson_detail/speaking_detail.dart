@@ -1,17 +1,16 @@
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson.dart';
-import 'package:eft_project/Screens/lesson_detail/speaking_detail.dart';
+import 'package:eft_project/Screens/lesson_detail/components/speaking/lesson_speaking.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-class Speaking extends StatefulWidget {
-  const Speaking({Key key}) : super(key: key);
-  static String id = 'speaking';
+class SpeakingDetail extends StatefulWidget {
+  const SpeakingDetail({Key key}) : super(key: key);
+  static String id = 'speaking_detail';
   @override
-  State<Speaking> createState() => _SpeakingState();
+  State<SpeakingDetail> createState() => _SpeakingDetailState();
 }
 
-class _SpeakingState extends State<Speaking> {
+class _SpeakingDetailState extends State<SpeakingDetail> {
   Future<LottieComposition> compositionSpeaking;
   Future<LottieComposition> _loadComposition(String path) async {
     var assetData = await rootBundle.load(path);
@@ -26,10 +25,7 @@ class _SpeakingState extends State<Speaking> {
 
   @override
   Widget build(BuildContext context) {
-    return EnrollLesson(
-      tapped: () {
-        Navigator.pushNamed(context, SpeakingDetail.id);
-      },
+    return LessonSpeaking(
       composition: compositionSpeaking,
       title: 'Speaking',
       color: const Color(0xFF7383C0),

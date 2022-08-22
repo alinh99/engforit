@@ -1,29 +1,24 @@
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_button.dart';
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson_detail.dart';
+import 'package:eft_project/Screens/lesson_detail/components/writing/lesson_detail_writing.dart';
 import 'package:eft_project/components/lottie_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-class EnrollLesson extends StatefulWidget {
-  const EnrollLesson(
-      {Key key, this.composition, this.color, this.title, this.tapped})
+class LessonWriting extends StatefulWidget {
+  const LessonWriting({Key key, this.composition, this.color, this.title})
       : super(key: key);
 
   final Future<LottieComposition> composition;
   final String title;
   final Color color;
-  final Function tapped;
   @override
-  State<EnrollLesson> createState() => _EnrollLessonState();
+  State<LessonWriting> createState() => _LessonWritingState();
 }
 
-class _EnrollLessonState extends State<EnrollLesson> {
+class _LessonWritingState extends State<LessonWriting> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: EnrollButton(
-        tapped: widget.tapped,
-      ),
+      //bottomNavigationBar: const EnrollButton(),
       backgroundColor: const Color(0xFFEFF9FF),
       appBar: AppBar(
         title: Text(
@@ -63,7 +58,6 @@ class _EnrollLessonState extends State<EnrollLesson> {
                           height: MediaQuery.of(context).size.height * 0.078,
                           width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
-                            //color: Color(0xffF5AE2C),
                             color: widget.color,
                             borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(20),
@@ -145,55 +139,45 @@ class _EnrollLessonState extends State<EnrollLesson> {
                       ],
                     ),
                   ),
-                  const EnrollLessonDetail(
-                    index: 0,
+                  const LessonDetailWriting(
                     title: 'Computer Users',
                     widthSize: 96,
                   ),
-                  const EnrollLessonDetail(
-                    index: 1,
+                  const LessonDetailWriting(
                     title: 'Computer Architecture',
                     widthSize: 50,
                   ),
-                  const EnrollLessonDetail(
-                    index: 2,
+                  const LessonDetailWriting(
                     title: 'Computer Applications',
                     widthSize: 48,
                   ),
-                  const EnrollLessonDetail(
-                    index: 3,
+                  const LessonDetailWriting(
                     title: 'Peripherals',
                     widthSize: 130,
                   ),
-                  const EnrollLessonDetail(
-                    index: 4,
+                  const LessonDetailWriting(
                     title: 'Interview, Former Student',
                     widthSize: 28,
                   ),
-                  const EnrollLessonDetail(
-                    index: 5,
+                  const LessonDetailWriting(
                     title: 'Operating Systems',
                     widthSize: 76,
                   ),
-                  const EnrollLessonDetail(
-                    index: 6,
+                  const LessonDetailWriting(
                     title: 'Graphical User Interfaces',
                     widthSize: 30,
                   ),
-                  const EnrollLessonDetail(
-                    index: 7,
+                  const LessonDetailWriting(
                     title: 'Applications Programs',
                     widthSize: 48,
                   ),
-                  const EnrollLessonDetail(
-                    index: 8,
+                  const LessonDetailWriting(
                     title: 'Multimedia',
-                    widthSize: 132,
+                    widthSize: 130,
                   ),
-                  const EnrollLessonDetail(
-                    index: 9,
+                  const LessonDetailWriting(
                     title: 'Computing Support Officer',
-                    widthSize: 13,
+                    widthSize: 20,
                   ),
                 ],
               ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LessonDetail extends StatelessWidget {
-  const LessonDetail({
+class EnrollLessonDetail extends StatelessWidget {
+  const EnrollLessonDetail({
     this.index,
     this.title,
     this.widthSize,

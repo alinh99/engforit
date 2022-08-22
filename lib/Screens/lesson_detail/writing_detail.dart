@@ -1,17 +1,16 @@
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson.dart';
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull_writing.dart';
+import 'package:eft_project/Screens/lesson_detail/components/writing/lesson_writing.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-class Writing extends StatefulWidget {
-  const Writing({Key key}) : super(key: key);
-  static String id = 'writing';
+class WritingDetail extends StatefulWidget {
+  const WritingDetail({Key key}) : super(key: key);
+  static String id = 'writing_detail';
   @override
-  State<Writing> createState() => _WritingState();
+  State<WritingDetail> createState() => _WritingDetailState();
 }
 
-class _WritingState extends State<Writing> {
+class _WritingDetailState extends State<WritingDetail> {
   Future<LottieComposition> compositionWriting;
   Future<LottieComposition> _loadComposition(String path) async {
     var assetData = await rootBundle.load(path);
@@ -26,10 +25,7 @@ class _WritingState extends State<Writing> {
 
   @override
   Widget build(BuildContext context) {
-    return EnrollLesson(
-      tapped: () {
-        Navigator.pushNamed(context, SuccessfulEnrollWriting.id);
-      },
+    return LessonWriting(
       composition: compositionWriting,
       title: 'Writing',
       color: const Color(0xFF5AE2E2),

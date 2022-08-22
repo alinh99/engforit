@@ -1,17 +1,19 @@
+import 'package:eft_project/Screens/lesson_detail/listening_detail.dart';
 import 'package:eft_project/components/lottie_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-class SuccessfulEnroll extends StatefulWidget {
-  static String id = 'enroll_successfully';
-  const SuccessfulEnroll({Key key, this.tapped}) : super(key: key);
-  final Function tapped;
+class SuccessfulEnrollListening extends StatefulWidget {
+  static String id = 'enroll_successfully_listening';
+  const SuccessfulEnrollListening({Key key}) : super(key: key);
+
   @override
-  State<SuccessfulEnroll> createState() => _SuccessfulEnrollState();
+  State<SuccessfulEnrollListening> createState() =>
+      _SuccessfulEnrollListeningState();
 }
 
-class _SuccessfulEnrollState extends State<SuccessfulEnroll> {
+class _SuccessfulEnrollListeningState extends State<SuccessfulEnrollListening> {
   Future<LottieComposition> compositionLoginSuccessfully;
   Future<LottieComposition> _loadComposition(String path) async {
     var assetData = await rootBundle.load(path);
@@ -28,7 +30,6 @@ class _SuccessfulEnrollState extends State<SuccessfulEnroll> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: const Color(0xFF56CBFF),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -62,7 +63,9 @@ class _SuccessfulEnrollState extends State<SuccessfulEnroll> {
                 borderRadius: BorderRadius.circular(50),
               ),
               child: InkWell(
-                onTap: widget.tapped,
+                onTap: () {
+                  Navigator.pushNamed(context, ListeningDetail.id);
+                },
                 child: const Text(
                   'Proceed',
                   textAlign: TextAlign.center,

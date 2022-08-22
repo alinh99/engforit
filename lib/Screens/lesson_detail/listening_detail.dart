@@ -1,17 +1,16 @@
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson.dart';
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull_listening.dart';
+import 'package:eft_project/Screens/lesson_detail/components/listening/lesson_listening.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-class Listening extends StatefulWidget {
-  const Listening({Key key}) : super(key: key);
-  static String id = 'listening';
+class ListeningDetail extends StatefulWidget {
+  const ListeningDetail({Key key}) : super(key: key);
+  static String id = 'listening_detail';
   @override
-  State<Listening> createState() => _ListeningState();
+  State<ListeningDetail> createState() => _ListeningDetailState();
 }
 
-class _ListeningState extends State<Listening> {
+class _ListeningDetailState extends State<ListeningDetail> {
   Future<LottieComposition> compositionListening;
   Future<LottieComposition> _loadComposition(String path) async {
     var assetData = await rootBundle.load(path);
@@ -27,10 +26,7 @@ class _ListeningState extends State<Listening> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: EnrollLesson(
-        tapped: () {
-          Navigator.pushNamed(context, SuccessfulEnrollListening.id);
-        },
+      body: LessonListening(
         composition: compositionListening,
         title: 'Listening',
         color: const Color(0xffF5AE2C),

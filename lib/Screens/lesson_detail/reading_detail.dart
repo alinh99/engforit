@@ -1,17 +1,16 @@
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson.dart';
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull%20_reading.dart';
+import 'package:eft_project/Screens/lesson_detail/components/reading/lesson_reading.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-class Reading extends StatefulWidget {
-  const Reading({Key key}) : super(key: key);
-  static String id = 'reading';
+class ReadingDetail extends StatefulWidget {
+  const ReadingDetail({Key key}) : super(key: key);
+  static String id = 'reading_detail';
   @override
-  State<Reading> createState() => _ReadingState();
+  State<ReadingDetail> createState() => _ReadingDetailState();
 }
 
-class _ReadingState extends State<Reading> {
+class _ReadingDetailState extends State<ReadingDetail> {
   Future<LottieComposition> compositionReading;
   Future<LottieComposition> _loadComposition(String path) async {
     var assetData = await rootBundle.load(path);
@@ -26,10 +25,7 @@ class _ReadingState extends State<Reading> {
 
   @override
   Widget build(BuildContext context) {
-    return EnrollLesson(
-      tapped: () {
-        Navigator.pushNamed(context, SuccessfulEnrollReading.id);
-      },
+    return LessonReading(
       composition: compositionReading,
       title: 'Reading',
       color: const Color(0xff54C3FF),
