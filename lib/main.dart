@@ -1,3 +1,9 @@
+import 'package:eft_project/Screens/contents/components/listening_contents.dart';
+import 'package:eft_project/Screens/contents/unit1/listening_unit1.dart';
+import 'package:eft_project/Screens/contents/unit2/listening_unit2.dart';
+import 'package:eft_project/Screens/contents/unit3/listening_unit3.dart';
+import 'package:eft_project/Screens/contents/unit4/listening_unit4.dart';
+import 'package:eft_project/Screens/contents/unit5/listening_unit5.dart';
 import 'package:eft_project/Screens/courses/courses.dart';
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull%20_reading.dart';
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull_listening.dart';
@@ -46,14 +52,23 @@ class MyApp extends StatelessWidget {
         Reading.id: (context) => const Reading(),
         Speaking.id: (context) => const Speaking(),
         Writing.id: (context) => const Writing(),
-        SuccessfulEnrollReading.id: (context) => const SuccessfulEnrollReading(),
-        SuccessfulEnrollSpeaking.id: (context) => const SuccessfulEnrollSpeaking(),
-        SuccessfulEnrollWriting.id: (context) => const SuccessfulEnrollWriting(),
-        SuccessfulEnrollListening.id: (context) => const SuccessfulEnrollListening(),
+        SuccessfulEnrollReading.id: (context) =>
+            const SuccessfulEnrollReading(),
+        SuccessfulEnrollSpeaking.id: (context) =>
+            const SuccessfulEnrollSpeaking(),
+        SuccessfulEnrollWriting.id: (context) =>
+            const SuccessfulEnrollWriting(),
+        SuccessfulEnrollListening.id: (context) =>
+            const SuccessfulEnrollListening(),
         ListeningDetail.id: (context) => const ListeningDetail(),
         ReadingDetail.id: (context) => const ReadingDetail(),
         SpeakingDetail.id: (context) => const SpeakingDetail(),
         WritingDetail.id: (context) => const WritingDetail(),
+        ListeningUnit1.id: (context) => const ListeningUnit1(),
+        ListeningUnit2.id: (context) => const ListeningUnit2(),
+        ListeningUnit3.id: (context) => const ListeningUnit3(),
+        ListeningUnit4.id: (context) => const ListeningUnit4(),
+        ListeningUnit5.id: (context) => const ListeningUnit5(),
       },
     );
   }

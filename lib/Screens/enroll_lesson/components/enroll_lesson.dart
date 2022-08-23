@@ -1,4 +1,3 @@
-import 'package:eft_project/Screens/enroll_lesson/components/enroll_button.dart';
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson_detail.dart';
 import 'package:eft_project/components/lottie_animation.dart';
 import 'package:flutter/material.dart';
@@ -6,13 +5,12 @@ import 'package:lottie/lottie.dart';
 
 class EnrollLesson extends StatefulWidget {
   const EnrollLesson(
-      {Key key, this.composition, this.color, this.title, this.tapped})
+      {Key key, this.composition, this.color, this.title})
       : super(key: key);
 
   final Future<LottieComposition> composition;
   final String title;
   final Color color;
-  final Function tapped;
   @override
   State<EnrollLesson> createState() => _EnrollLessonState();
 }
@@ -21,9 +19,6 @@ class _EnrollLessonState extends State<EnrollLesson> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: EnrollButton(
-        tapped: widget.tapped,
-      ),
       backgroundColor: const Color(0xFFEFF9FF),
       appBar: AppBar(
         title: Text(

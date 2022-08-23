@@ -1,6 +1,7 @@
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson.dart';
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull_speaking.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:eft_project/components/fixed_button.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
@@ -26,13 +27,19 @@ class _SpeakingState extends State<Speaking> {
 
   @override
   Widget build(BuildContext context) {
-    return EnrollLesson(
-      tapped: () {
-        Navigator.pushNamed(context, SuccessfulEnrollSpeaking.id);
-      },
-      composition: compositionSpeaking,
-      title: 'Speaking',
-      color: const Color(0xFF7383C0),
+    return Scaffold(
+      bottomNavigationBar: FixedButton(
+        tapped: () {
+          Navigator.pushNamed(context, SuccessfulEnrollSpeaking.id);
+        },
+        buttonColor: const Color(0xFF7383C0),
+        buttonNamed: 'Enroll now',
+      ),
+      body: EnrollLesson(
+        composition: compositionSpeaking,
+        title: 'Speaking',
+        color: const Color(0xFF7383C0),
+      ),
     );
   }
 }

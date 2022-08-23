@@ -1,6 +1,7 @@
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson.dart';
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull%20_reading.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:eft_project/components/fixed_button.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
@@ -26,13 +27,22 @@ class _ReadingState extends State<Reading> {
 
   @override
   Widget build(BuildContext context) {
-    return EnrollLesson(
-      tapped: () {
-        Navigator.pushNamed(context, SuccessfulEnrollReading.id);
-      },
-      composition: compositionReading,
-      title: 'Reading',
-      color: const Color(0xff54C3FF),
+    return Scaffold(
+      bottomNavigationBar: FixedButton(
+        tapped: () {
+          Navigator.pushNamed(
+            context,
+            SuccessfulEnrollReading.id
+          );
+        },
+        buttonNamed: 'Enroll now',
+        buttonColor: const Color(0xff54C3FF),
+      ),
+      body: EnrollLesson(
+        composition: compositionReading,
+        title: 'Reading',
+        color: const Color(0xff54C3FF),
+      ),
     );
   }
 }

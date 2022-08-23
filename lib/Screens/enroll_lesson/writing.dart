@@ -1,6 +1,7 @@
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson.dart';
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull_writing.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:eft_project/components/fixed_button.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
@@ -26,13 +27,19 @@ class _WritingState extends State<Writing> {
 
   @override
   Widget build(BuildContext context) {
-    return EnrollLesson(
-      tapped: () {
-        Navigator.pushNamed(context, SuccessfulEnrollWriting.id);
-      },
-      composition: compositionWriting,
-      title: 'Writing',
-      color: const Color(0xFF5AE2E2),
+    return Scaffold(
+      bottomNavigationBar: FixedButton(
+        tapped: () {
+          Navigator.pushNamed(context, SuccessfulEnrollWriting.id);
+        },
+        buttonColor: const Color(0xFF5AE2E2),
+        buttonNamed: 'Enroll now',
+      ),
+      body: EnrollLesson(
+        composition: compositionWriting,
+        title: 'Writing',
+        color: const Color(0xFF5AE2E2),
+      ),
     );
   }
 }

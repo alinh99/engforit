@@ -1,3 +1,5 @@
+import 'package:eft_project/Screens/contents/unit1/listening_unit1.dart';
+import 'package:eft_project/Screens/contents/unit2/listening_unit2.dart';
 import 'package:eft_project/Screens/lesson_detail/components/listening/lesson_detail_listening.dart';
 import 'package:eft_project/components/reuseable_card.dart';
 import 'package:flutter/material.dart';
@@ -109,11 +111,17 @@ class _LessonListeningState extends State<LessonListening> {
                       ],
                     ),
                   ),
-                  const LessonDetailListening(
+                  LessonDetailListening(
+                    tapped: () {
+                      Navigator.pushNamed(context, ListeningUnit1.id);
+                    },
                     title: 'Computer Users',
                     widthSize: 96,
                   ),
-                  const LessonDetailListening(
+                  LessonDetailListening(
+                    tapped: () {
+                      Navigator.pushNamed(context, ListeningUnit2.id);
+                    },
                     title: 'Computer Architecture',
                     widthSize: 50,
                   ),

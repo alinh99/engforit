@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-class EnrollButton extends StatefulWidget {
-  const EnrollButton({Key key, this.tapped}) : super(key: key);
+class FixedButton extends StatefulWidget {
+  const FixedButton({Key key, this.tapped, this.buttonNamed, this.buttonColor})
+      : super(key: key);
   final Function tapped;
+  final String buttonNamed;
+  final Color buttonColor;
   @override
-  EnrollButtonState createState() => EnrollButtonState();
+  FixedButtonState createState() => FixedButtonState();
 }
 
-class EnrollButtonState extends State<EnrollButton> {
+class FixedButtonState extends State<FixedButton> {
   @override
   Widget build(BuildContext context) {
     double displayWidth = MediaQuery.of(context).size.width;
@@ -17,21 +20,22 @@ class EnrollButtonState extends State<EnrollButton> {
       child: Container(
         margin: EdgeInsets.all(displayWidth * .05),
         height: displayWidth * .155,
+        //color: widget.buttonColor,
         decoration: BoxDecoration(
-          color: const Color(0xFF54C3FF),
-          boxShadow: [
+          color: widget.buttonColor,
+          boxShadow: const [
             BoxShadow(
-              color: Colors.black.withOpacity(.1),
-              blurRadius: 30,
-              offset: const Offset(0, 10),
+              color:  Color(0xFFEFF9FF),
+              blurRadius: 45,
+              spreadRadius: 45,
             ),
           ],
           borderRadius: BorderRadius.circular(50),
         ),
-        child: const Center(
+        child: Center(
           child: Text(
-            'Enroll now',
-            style: TextStyle(
+            widget.buttonNamed,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 24,
               fontWeight: FontWeight.w500,
