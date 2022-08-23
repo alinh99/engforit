@@ -51,55 +51,65 @@ class _HomeState extends State<Home> {
         child: Column(
           children: [
             Align(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      Container(
-                        alignment: Alignment.topLeft,
-                        margin: const EdgeInsets.only(right: 114),
-                        child: Text(
-                          'Hello,',
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: Colors
-                                  .grey[350] //fontWeight: FontWeight.bold,
-                              ),
-                          textAlign: TextAlign.start,
+              alignment: Alignment.topLeft,
+              child: SingleChildScrollView(
+                // physics: const BouncingScrollPhysics(
+                //     parent: AlwaysScrollableScrollPhysics()),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(
+                          height: 8,
                         ),
-                      ),
-                      const SizedBox(
-                        height: 4,
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(left: 20),
-                        child: const Text(
-                          'Dien\'s pet 👏',
-                          style: TextStyle(
-                            fontSize: 32,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w500,
+                        Container(
+                          alignment: Alignment.topLeft,
+                          margin: const EdgeInsets.only(left: 24),
+                          child: Text(
+                            'Hello,',
+                            style: TextStyle(
+                                fontSize: 20,
+                                color: Colors
+                                    .grey[350] //fontWeight: FontWeight.bold,
+                                ),
+                            textAlign: TextAlign.start,
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 8, right: 20),
-                    child: const CircleAvatar(
-                      backgroundColor: Color(0xFFCFD9FF),
-                      radius: 25,
-                      child: Icon(
-                        Icons.person,
-                        color: Colors.white,
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(left: 24),
+                          child: const Text(
+                            'Nguyen Thi Thuy Dung 👏',
+                            style: TextStyle(
+                              fontSize: 28,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      width: 80,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 8),
+                      child: const CircleAvatar(
+                        backgroundColor: Color(0xFFCFD9FF),
+                        radius: 25,
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             const SizedBox(
