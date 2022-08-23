@@ -1,5 +1,9 @@
 import 'package:eft_project/Screens/contents/unit1/listening_unit1.dart';
+import 'package:eft_project/Screens/contents/unit1/listening_unit1.dart';
 import 'package:eft_project/Screens/contents/unit2/listening_unit2.dart';
+import 'package:eft_project/Screens/contents/unit3/listening_unit3.dart';
+import 'package:eft_project/Screens/contents/unit4/listening_unit4.dart';
+import 'package:eft_project/Screens/contents/unit5/listening_unit5.dart';
 import 'package:eft_project/Screens/lesson_detail/components/listening/lesson_detail_listening.dart';
 import 'package:eft_project/components/reuseable_card.dart';
 import 'package:flutter/material.dart';
@@ -125,15 +129,24 @@ class _LessonListeningState extends State<LessonListening> {
                     title: 'Computer Architecture',
                     widthSize: 50,
                   ),
-                  const LessonDetailListening(
+                  LessonDetailListening(
+                    tapped: () {
+                      Navigator.pushNamed(context, ListeningUnit3.id);
+                    },
                     title: 'Computer Applications',
                     widthSize: 48,
                   ),
-                  const LessonDetailListening(
+                  LessonDetailListening(
+                    tapped: () {
+                      Navigator.pushNamed(context, ListeningUnit4.id);
+                    },
                     title: 'Peripherals',
                     widthSize: 130,
                   ),
-                  const LessonDetailListening(
+                  LessonDetailListening(
+                    tapped: () {
+                      Navigator.pushNamed(context, ListeningUnit5.id);
+                    },
                     title: 'Interview, Former Student',
                     widthSize: 28,
                   ),
