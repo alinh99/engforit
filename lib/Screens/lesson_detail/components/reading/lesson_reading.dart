@@ -1,3 +1,8 @@
+import 'package:eft_project/Screens/contents/unit1/reading_unit1.dart';
+import 'package:eft_project/Screens/contents/unit2/reading_unit2.dart';
+import 'package:eft_project/Screens/contents/unit3/reading_unit3.dart';
+import 'package:eft_project/Screens/contents/unit4/reading_unit4.dart';
+import 'package:eft_project/Screens/contents/unit5/reading_unit5.dart';
 import 'package:eft_project/Screens/lesson_detail/components/reading/lesson_detail_reading.dart';
 import 'package:eft_project/components/reuseable_card.dart';
 import 'package:flutter/material.dart';
@@ -110,23 +115,38 @@ class _LessonReadingState extends State<LessonReading> {
                       ],
                     ),
                   ),
-                  const LessonDetailReading(
+                  LessonDetailReading(
+                    tapped: () {
+                      Navigator.pushNamed(context, ReadingUnit1.id);
+                    },
                     title: 'Computer Users',
                     widthSize: 96,
                   ),
-                  const LessonDetailReading(
+                  LessonDetailReading(
+                    tapped: () {
+                      Navigator.pushNamed(context, ReadingUnit2.id);
+                    },
                     title: 'Computer Architecture',
                     widthSize: 50,
                   ),
-                  const LessonDetailReading(
+                  LessonDetailReading(
+                    tapped: () {
+                      Navigator.pushNamed(context, ReadingUnit3.id);
+                    },
                     title: 'Computer Applications',
                     widthSize: 48,
                   ),
-                  const LessonDetailReading(
+                  LessonDetailReading(
+                    tapped: () {
+                      Navigator.pushNamed(context, ReadingUnit4.id);
+                    },
                     title: 'Peripherals',
                     widthSize: 130,
                   ),
-                  const LessonDetailReading(
+                  LessonDetailReading(
+                    tapped: () {
+                      Navigator.pushNamed(context, ReadingUnit5.id);
+                    },
                     title: 'Interview, Former Student',
                     widthSize: 28,
                   ),
