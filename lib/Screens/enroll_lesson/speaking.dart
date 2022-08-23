@@ -1,5 +1,5 @@
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_lesson.dart';
-import 'package:eft_project/Screens/lesson_detail/speaking_detail.dart';
+import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull_speaking.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
@@ -28,7 +28,7 @@ class _SpeakingState extends State<Speaking> {
   Widget build(BuildContext context) {
     return EnrollLesson(
       tapped: () {
-        Navigator.pushNamed(context, SpeakingDetail.id);
+        Navigator.pushNamed(context, SuccessfulEnrollSpeaking.id);
       },
       composition: compositionSpeaking,
       title: 'Speaking',

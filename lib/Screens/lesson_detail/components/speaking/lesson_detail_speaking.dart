@@ -24,7 +24,7 @@ class LessonDetailSpeaking extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              margin: const EdgeInsets.only(left: 16, top: 8, bottom: 8),
+              margin: const EdgeInsets.only(left: 8, top: 8, bottom: 8),
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),

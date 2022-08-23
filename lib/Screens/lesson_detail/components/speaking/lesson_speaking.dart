@@ -1,6 +1,6 @@
 
 import 'package:eft_project/Screens/lesson_detail/components/speaking/lesson_detail_speaking.dart';
-import 'package:eft_project/components/lottie_animation.dart';
+import 'package:eft_project/components/reuseable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -38,37 +38,8 @@ class _LessonSpeakingState extends State<LessonSpeaking> {
             children: [
               Column(
                 children: [
-                  Container(
-                    margin: const EdgeInsets.only(
-                        top: 24, bottom: 16, left: 16, right: 16),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
-                    ),
-                    height: MediaQuery.of(context).size.height * 0.35,
-                    child: Column(
-                      children: [
-                        LottieAnimation(
-                          composition: widget.composition,
-                          height: 0.25,
-                        ),
-                        const SizedBox(
-                          height: 16,
-                        ),
-                        Container(
-                          height: MediaQuery.of(context).size.height * 0.078,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: widget.color,
-                            borderRadius: const BorderRadius.only(
-                              bottomLeft: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  ReuseableCard(
+                      color: widget.color, composition: widget.composition),
                   Container(
                     margin: const EdgeInsets.only(
                         top: 8, bottom: 16, left: 16, right: 16),
