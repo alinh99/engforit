@@ -1,14 +1,19 @@
 import 'package:eft_project/Screens/contents/components/listening_contents.dart';
 import 'package:eft_project/Screens/contents/unit1/listening_unit1.dart';
 import 'package:eft_project/Screens/contents/unit1/reading_unit1.dart';
+import 'package:eft_project/Screens/contents/unit1/writing_unit1.dart';
 import 'package:eft_project/Screens/contents/unit2/listening_unit2.dart';
 import 'package:eft_project/Screens/contents/unit2/reading_unit2.dart';
+import 'package:eft_project/Screens/contents/unit2/writing_unit2.dart';
 import 'package:eft_project/Screens/contents/unit3/listening_unit3.dart';
 import 'package:eft_project/Screens/contents/unit3/reading_unit3.dart';
+import 'package:eft_project/Screens/contents/unit3/writing_unit3.dart';
 import 'package:eft_project/Screens/contents/unit4/listening_unit4.dart';
 import 'package:eft_project/Screens/contents/unit4/reading_unit4.dart';
+import 'package:eft_project/Screens/contents/unit4/writing_unit4.dart';
 import 'package:eft_project/Screens/contents/unit5/listening_unit5.dart';
 import 'package:eft_project/Screens/contents/unit5/reading_unit5.dart';
+import 'package:eft_project/Screens/contents/unit5/writing_unit4.dart';
 import 'package:eft_project/Screens/courses/courses.dart';
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull%20_reading.dart';
 import 'package:eft_project/Screens/enroll_lesson/components/enroll_successfull_listening.dart';
@@ -74,11 +79,16 @@ class MyApp extends StatelessWidget {
         ListeningUnit3.id: (context) => const ListeningUnit3(),
         ListeningUnit4.id: (context) => const ListeningUnit4(),
         ListeningUnit5.id: (context) => const ListeningUnit5(),
-        ReadingUnit1.id:(context) => const ReadingUnit1(),
-        ReadingUnit2.id:(context) => const ReadingUnit2(),
-        ReadingUnit3.id:(context) => const ReadingUnit3(),
-        ReadingUnit4.id:(context) => const ReadingUnit4(),
-        ReadingUnit5.id:(context) => const ReadingUnit5(),
+        ReadingUnit1.id: (context) => const ReadingUnit1(),
+        ReadingUnit2.id: (context) => const ReadingUnit2(),
+        ReadingUnit3.id: (context) => const ReadingUnit3(),
+        ReadingUnit4.id: (context) => const ReadingUnit4(),
+        ReadingUnit5.id: (context) => const ReadingUnit5(),
+        WritingUnit1.id: (context) => const WritingUnit1(),
+        WritingUnit2.id: (context) => const WritingUnit2(),
+        WritingUnit3.id: (context) => const WritingUnit3(),
+        WritingUnit4.id: (context) => const WritingUnit4(),
+        WritingUnit5.id: (context) => const WritingUnit5(),
 
       },
     );

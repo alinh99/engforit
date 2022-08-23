@@ -116,6 +116,7 @@ class _ListeningContentsState extends State<ListeningContents> {
                     QuestionAndAnswerCard(
                       question: widget.question,
                       title: widget.title,
+                      answerLines: 5,
                     ),
                   ],
                 ),

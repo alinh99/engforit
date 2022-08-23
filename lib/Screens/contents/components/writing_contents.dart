@@ -6,16 +6,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
-class ReadingContents extends StatefulWidget {
-  const ReadingContents({Key key, this.title, this.question}) : super(key: key);
+class WritingContents extends StatefulWidget {
+  const WritingContents({Key key, this.title}) : super(key: key);
   final String title;
-  final String question;
+
   @override
-  State<ReadingContents> createState() => _ReadingContentsState();
+  State<WritingContents> createState() => _WritingContentsState();
 }
 
-class _ReadingContentsState extends State<ReadingContents> {
-  Future<LottieComposition> compositionReading;
+class _WritingContentsState extends State<WritingContents> {
+  Future<LottieComposition> compositionWriting;
   Future<LottieComposition> _loadComposition(String path) async {
     var assetData = await rootBundle.load(path);
     return await LottieComposition.fromByteData(assetData);
@@ -23,7 +23,7 @@ class _ReadingContentsState extends State<ReadingContents> {
 
   @override
   void initState() {
-    compositionReading = _loadComposition('assets/images/reading.json');
+    compositionWriting = _loadComposition('assets/images/writing.json');
     super.initState();
   }
 
@@ -32,7 +32,7 @@ class _ReadingContentsState extends State<ReadingContents> {
     return Scaffold(
       bottomNavigationBar: FixedButton(
         tapped: () {},
-        buttonColor: const Color(0xff54C3FF),
+        buttonColor: const Color(0xFF5AE2E2),
         buttonNamed: 'Submit',
       ),
       body: Appbar(
@@ -45,13 +45,13 @@ class _ReadingContentsState extends State<ReadingContents> {
                 Column(
                   children: [
                     ReuseableCard(
-                      color: const Color(0xff54C3FF),
-                      composition: compositionReading,
+                      color: const Color(0xFF5AE2E2),
+                      composition: compositionWriting,
                     ),
                     QuestionAndAnswerCard(
-                      question: widget.question,
                       title: widget.title,
-                      answerLines: 5,
+                      question: '',
+                      answerLines: 50,
                     ),
                   ],
                 ),

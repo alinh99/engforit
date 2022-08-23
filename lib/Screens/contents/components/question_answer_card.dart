@@ -4,10 +4,12 @@ class QuestionAndAnswerCard extends StatelessWidget {
   const QuestionAndAnswerCard({
     this.question,
     this.title,
+    this.answerLines,
     Key key,
   }) : super(key: key);
   final String title;
   final String question;
+  final int answerLines;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,10 +42,10 @@ class QuestionAndAnswerCard extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
-          const TextField(
+           TextField(
             minLines: 1,
-            maxLines: 5,
-            decoration: InputDecoration(
+            maxLines: answerLines,
+            decoration: const InputDecoration(
               contentPadding: EdgeInsets.all(8),
               hintText: 'Input your answer ...',
               suffixIcon: Padding(

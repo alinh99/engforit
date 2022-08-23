@@ -1,3 +1,8 @@
+import 'package:eft_project/Screens/contents/unit1/writing_unit1.dart';
+import 'package:eft_project/Screens/contents/unit2/writing_unit2.dart';
+import 'package:eft_project/Screens/contents/unit3/writing_unit3.dart';
+import 'package:eft_project/Screens/contents/unit4/writing_unit4.dart';
+import 'package:eft_project/Screens/contents/unit5/writing_unit4.dart';
 import 'package:eft_project/Screens/lesson_detail/components/writing/lesson_detail_writing.dart';
 import 'package:eft_project/components/reuseable_card.dart';
 import 'package:flutter/material.dart';
@@ -110,23 +115,38 @@ class _LessonWritingState extends State<LessonWriting> {
                       ],
                     ),
                   ),
-                  const LessonDetailWriting(
+                  LessonDetailWriting(
+                    tapped: () {
+                      Navigator.pushNamed(context, WritingUnit1.id);
+                    },
                     title: 'Computer Users',
                     widthSize: 96,
                   ),
-                  const LessonDetailWriting(
+                  LessonDetailWriting(
+                    tapped: () {
+                      Navigator.pushNamed(context, WritingUnit2.id);
+                    },
                     title: 'Computer Architecture',
                     widthSize: 50,
                   ),
-                  const LessonDetailWriting(
+                  LessonDetailWriting(
+                    tapped: () {
+                      Navigator.pushNamed(context, WritingUnit3.id);
+                    },
                     title: 'Computer Applications',
                     widthSize: 48,
                   ),
-                  const LessonDetailWriting(
+                  LessonDetailWriting(
+                    tapped: () {
+                      Navigator.pushNamed(context, WritingUnit4.id);
+                    },
                     title: 'Peripherals',
                     widthSize: 130,
                   ),
-                  const LessonDetailWriting(
+                  LessonDetailWriting(
+                    tapped: () {
+                      Navigator.pushNamed(context, WritingUnit5.id);
+                    },
                     title: 'Interview, Former Student',
                     widthSize: 28,
                   ),
