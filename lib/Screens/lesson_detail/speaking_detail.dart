@@ -26,7 +26,6 @@ class _SpeakingDetailState extends State<SpeakingDetail> {
   @override
   Widget build(BuildContext context) {
     return LessonSpeaking(
-      
       composition: compositionSpeaking,
       title: 'Speaking',
       color: const Color(0xFF7383C0),
