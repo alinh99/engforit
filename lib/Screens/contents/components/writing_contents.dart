@@ -36,7 +36,7 @@ class _WritingContentsState extends State<WritingContents> {
         buttonNamed: 'Submit',
       ),
       body: Appbar(
-        title: 'Reading',
+        title: 'Writing',
         body: SafeArea(
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,

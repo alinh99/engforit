@@ -1,4 +1,4 @@
-
+import 'package:eft_project/Screens/contents/unit1/speaking_unit1.dart';
 import 'package:eft_project/Screens/lesson_detail/components/speaking/lesson_detail_speaking.dart';
 import 'package:eft_project/components/reuseable_card.dart';
 import 'package:flutter/material.dart';
@@ -111,7 +111,10 @@ class _LessonSpeakingState extends State<LessonSpeaking> {
                       ],
                     ),
                   ),
-                  const LessonDetailSpeaking(
+                  LessonDetailSpeaking(
+                    tapped: () {
+                      Navigator.pushNamed(context, SpeakingUnit1.id);
+                    },
                     title: 'Computer Users',
                     widthSize: 96,
                   ),
