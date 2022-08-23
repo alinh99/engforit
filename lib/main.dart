@@ -35,6 +35,7 @@ import 'package:eft_project/Screens/lesson_detail/writing_detail.dart';
 import 'package:eft_project/Screens/login/login.dart';
 import 'package:eft_project/Screens/login/successfully_login.dart';
 import 'package:eft_project/Screens/login/successfully_register.dart';
+import 'package:eft_project/Screens/settings/settings.dart';
 import 'package:eft_project/Screens/splash/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -98,6 +99,7 @@ class MyApp extends StatelessWidget {
         SpeakingUnit3.id: (context) => const SpeakingUnit3(),
         SpeakingUnit4.id: (context) => const SpeakingUnit4(),
         SpeakingUnit5.id: (context) => const SpeakingUnit5(),
+        Settings.id:(context) => const Settings(),
       },
     );
   }

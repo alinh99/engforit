@@ -53,8 +53,8 @@ class _HomeState extends State<Home> {
             Align(
               alignment: Alignment.topLeft,
               child: SingleChildScrollView(
-                // physics: const BouncingScrollPhysics(
-                //     parent: AlwaysScrollableScrollPhysics()),
+                physics: const BouncingScrollPhysics(
+                    parent: AlwaysScrollableScrollPhysics()),
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -84,7 +84,7 @@ class _HomeState extends State<Home> {
                         Container(
                           margin: const EdgeInsets.only(left: 24),
                           child: const Text(
-                            'Nguyen Thi Thuy Dung 👏',
+                            'Nguyen Thi My Duyen 👏',
                             style: TextStyle(
                               fontSize: 28,
                               color: Colors.black,

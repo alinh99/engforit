@@ -1,5 +1,6 @@
 import 'package:eft_project/Screens/courses/courses.dart';
 import 'package:eft_project/Screens/home/home.dart';
+import 'package:eft_project/Screens/settings/settings.dart';
 import 'package:eft_project/components/icon_buttons.dart';
 import 'package:eft_project/enum.dart';
 import 'package:flutter/cupertino.dart';
@@ -127,9 +128,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                           ? Colors.white
                           : const Color(0xffdff3ff),
                       pressed: () {
-                        // setState(() {
-                        //   widget.selected = MenuState.profile;
-                        // });
+                        Navigator.pushNamed(context, Settings.id);
                       },
                     ),
                   ],
