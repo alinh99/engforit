@@ -63,7 +63,8 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 const SizedBox(height: 40),
                 const RoundedInput(icon: Icons.mail, hint: 'Username'),
-                const RoundedPasswordInput(hint: 'Password'),
+                const RoundedPasswordInput(
+                    hint: 'Password', icon: Icons.remove_red_eye_rounded),
                 const SizedBox(height: 10),
                 InkWell(
                   onTap: () {

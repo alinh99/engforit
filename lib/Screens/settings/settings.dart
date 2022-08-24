@@ -1,3 +1,4 @@
+import 'package:eft_project/Screens/profile/profile.dart';
 import 'package:eft_project/Screens/settings/components/setting_icon_button.dart';
 import 'package:eft_project/components/app_bar.dart';
 import 'package:eft_project/components/bottom_navigation_bar.dart';
@@ -31,7 +32,6 @@ class _SettingsState extends State<Settings> {
                         margin: const EdgeInsets.only(left: 24, top: 16),
                         child: const CircleAvatar(
                           radius: 40,
-                          backgroundColor: Color(0xffd9dffd),
                           backgroundImage:
                               AssetImage('assets/images/avatar.jpg'),
                         ),
@@ -71,7 +71,10 @@ class _SettingsState extends State<Settings> {
                     indent: 24,
                     endIndent: 24,
                   ),
-                  const SettingIconButton(
+                  SettingIconButton(
+                    pressed: () {
+                      Navigator.pushNamed(context, Profile.id);
+                    },
                     iconButton: Icons.person,
                     titleButton: 'Personal Data',
                     widthSize: 144,

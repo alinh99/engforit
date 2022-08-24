@@ -3,8 +3,8 @@ import 'package:eft_project/components/input_container.dart';
 import 'package:eft_project/constants.dart';
 
 class RoundedPasswordInput extends StatelessWidget {
-  const RoundedPasswordInput({Key key, @required this.hint}) : super(key: key);
-
+  const RoundedPasswordInput({Key key, @required this.hint, this.icon}) : super(key: key);
+  final IconData icon;
   final String hint;
 
   @override
@@ -14,9 +14,10 @@ class RoundedPasswordInput extends StatelessWidget {
       cursorColor: kPrimaryColor,
       obscureText: true,
       decoration: InputDecoration(
-          icon: const Icon(Icons.lock, color: Colors.grey),
-          hintText: hint,
-          border: InputBorder.none),
+        icon:  Icon(icon, color: Colors.grey),
+        hintText: hint,
+        border: InputBorder.none,
+      ),
     ));
   }
 }

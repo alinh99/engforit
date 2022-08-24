@@ -72,8 +72,11 @@ class _RegisterFormState extends State<RegisterForm> {
                   const RoundedInput(icon: Icons.mail, hint: 'Email'),
                   const RoundedInput(icon: Icons.face_rounded, hint: 'Name'),
                   const RoundedInput(icon: Icons.cake_outlined, hint: 'Age'),
-                  const RoundedPasswordInput(hint: 'Password'),
-                  const SizedBox(height: 40),
+                  const RoundedPasswordInput(
+                      hint: 'Password', icon: Icons.remove_red_eye_outlined),
+                  const SizedBox(
+                    height: 40,
+                  ),
                   InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, SuccessfulRegister.id);
