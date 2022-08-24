@@ -11,11 +11,12 @@ class RoundedInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InputContainer(
-        child: TextField(
-      decoration: InputDecoration(
-          icon: Icon(icon, color: Colors.grey),
-          hintText: hint,
-          border: InputBorder.none),
-    ));
+      child: TextField(
+        decoration: InputDecoration(
+            icon: Icon(icon, color: Colors.grey),
+            hintText: hint,
+            border: InputBorder.none),
+      ),
+    );
   }
 }

@@ -32,6 +32,7 @@ import 'package:eft_project/Screens/lesson_detail/listening_detail.dart';
 import 'package:eft_project/Screens/lesson_detail/reading_detail.dart';
 import 'package:eft_project/Screens/lesson_detail/speaking_detail.dart';
 import 'package:eft_project/Screens/lesson_detail/writing_detail.dart';
+import 'package:eft_project/Screens/login/error.dart';
 import 'package:eft_project/Screens/login/login.dart';
 import 'package:eft_project/Screens/login/successfully_login.dart';
 import 'package:eft_project/Screens/login/successfully_register.dart';
@@ -39,8 +40,14 @@ import 'package:eft_project/Screens/profile/profile.dart';
 import 'package:eft_project/Screens/settings/settings.dart';
 import 'package:eft_project/Screens/splash/splash.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:eft_project/user_services/auth.dart';
+import 'package:eft_project/user_models/users.dart';
+import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -100,8 +107,9 @@ class MyApp extends StatelessWidget {
         SpeakingUnit3.id: (context) => const SpeakingUnit3(),
         SpeakingUnit4.id: (context) => const SpeakingUnit4(),
         SpeakingUnit5.id: (context) => const SpeakingUnit5(),
-        Settings.id:(context) => const Settings(),
-        Profile.id:(context) => const Profile(),
+        Settings.id: (context) => const Settings(),
+        Profile.id: (context) => const Profile(),
+        Error.id: (context) => const Error(),
       },
     );
   }

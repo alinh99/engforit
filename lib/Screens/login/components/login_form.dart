@@ -1,10 +1,11 @@
+import 'package:eft_project/Screens/login/error.dart';
 import 'package:eft_project/Screens/login/successfully_login.dart';
-
+import 'package:eft_project/components/input_container.dart';
 import 'package:eft_project/components/lottie_animation.dart';
+import 'package:eft_project/constants.dart';
+import 'package:eft_project/user_services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:eft_project/components/rounded_button.dart';
-import 'package:eft_project/components/rounded_input.dart';
-import 'package:eft_project/components/rounded_password_input.dart';
 import 'package:flutter/services.dart';
 import 'package:lottie/lottie.dart';
 
@@ -25,6 +26,9 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  String email;
+  String password;
+  AuthService _auth = AuthService();
   Future<LottieComposition> composition;
   @override
   void initState() {
@@ -39,6 +43,28 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    showLoaderDialog(BuildContext context) {
+      AlertDialog alert = AlertDialog(
+        content: Row(
+          children: [
+            const CircularProgressIndicator(),
+            Container(
+              margin: const EdgeInsets.only(left: 7),
+              child: const Text("Loading..."),
+            ),
+          ],
+        ),
+      );
+      showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return alert;
+        },
+      );
+    }
+
+
     return AnimatedOpacity(
       opacity: widget.isLogin ? 1.0 : 0.0,
       duration: widget.animationDuration * 4,
@@ -62,13 +88,45 @@ class _LoginFormState extends State<LoginForm> {
                   height: 0.3,
                 ),
                 const SizedBox(height: 40),
-                const RoundedInput(icon: Icons.mail, hint: 'Username'),
-                const RoundedPasswordInput(
-                    hint: 'Password', icon: Icons.remove_red_eye_rounded),
+                InputContainer(
+                  child: TextField(
+                    onChanged: ((value) {
+                      email = value;
+                    }),
+                    decoration: const InputDecoration(
+                        icon: Icon(Icons.email, color: Colors.grey),
+                        hintText: 'Email',
+                        border: InputBorder.none),
+                  ),
+                ),
+                InputContainer(
+                  child: TextField(
+                    onChanged: ((value) {
+                      password = value;
+                    }),
+                    cursorColor: kPrimaryColor,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.remove_red_eye, color: Colors.grey),
+                      hintText: 'Password',
+                      border: InputBorder.none,
+                    ),
+                  ),
+                ),
                 const SizedBox(height: 10),
                 InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, SuccessfulLogin.id);
+                  onTap: () async {
+                    setState(() {
+                      showLoaderDialog(context);
+                    });
+                    try {
+                      final user = await _auth.signIn(email, password);
+                      if (user != null) {
+                        Navigator.pushNamed(context, SuccessfulLogin.id);
+                      }
+                    } catch (e) {
+                      Navigator.pushNamed(context, Error.id);
+                    }
                   },
                   child: const RoundedButton(title: 'LOGIN'),
                 ),
